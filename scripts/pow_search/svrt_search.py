@@ -20,7 +20,7 @@ import urllib.parse
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import FIRST_NAMES, SURNAMES, get, save_csv, session  # noqa: E402
+from common import FIRST_NAME_RE, SURNAME_RE, SURNAMES, get, save_csv, session  # noqa: E402
 
 INDEX = "https://1914.svrt.ru/index.php"
 EXT = "https://1914.svrt.ru/extsearch.php"
@@ -92,7 +92,7 @@ def grep_pdfs(s, codes, out_dir: str, delay: float):
             continue
         with open(txt, encoding="utf-8", errors="replace") as f:
             for n, line in enumerate(f, 1):
-                if re.search(r"ск[иы]б", line, re.I):
+                if re.search(SURNAME_RE, line, re.I):
                     hits.append({"guberniya": code, "line_no": n, "line": line.rstrip(), "pdf": url})
         time.sleep(delay)
     return hits
@@ -112,7 +112,7 @@ def main() -> int:
     for sn in (a.surname or SURNAMES):
         search_site(s, sn, rows, a.delay)
     save_csv(os.path.join(a.out, "all_rows.csv"), rows)
-    target = [r for r in rows if any(fn.lower() in " ".join(r.values()).lower() for fn in FIRST_NAMES)]
+    target = [r for r in rows if re.search(FIRST_NAME_RE, " ".join(r.values()).lower())]
     save_csv(os.path.join(a.out, "results.csv"), target)
     print(f"Строк всего: {len(rows)}; с именем Савелий/Савва/Сава: {len(target)}")
     for r in target:
@@ -121,7 +121,7 @@ def main() -> int:
     if a.pdf:
         hits = grep_pdfs(s, [c.strip() for c in a.gubernii.split(",") if c.strip()], os.path.join(a.out, "pdf"), a.delay)
         save_csv(os.path.join(a.out, "pdf_hits.csv"), hits)
-        print(f"Строк Скиба/Скыба в PDF: {len(hits)}")
+        print(f"Строк с фамилией вида Скиба/Скыба/Скибо/Шкиба в PDF: {len(hits)}")
         for h in hits:
             print(f" [{h['guberniya']}:{h['line_no']}] {h['line']}")
     return 0

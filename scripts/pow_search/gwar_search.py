@@ -25,7 +25,7 @@ import urllib.parse
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import FIRST_NAMES, SURNAMES, get, name_matches, save_csv, save_json, session, slug  # noqa: E402
+from common import FIRST_NAMES, SURNAMES, SURNAME_STEMS, get, name_matches, save_csv, save_json, session, slug, surname_matches  # noqa: E402
 
 BASE = "https://gwar.mil.ru"
 # Коды типов документов, как они передаются в параметре types (через двоеточие).
@@ -117,6 +117,7 @@ def main() -> int:
     ap.add_argument("--last-name", default=None, help="фамилия (по умолчанию перебираются варианты из common.SURNAMES)")
     ap.add_argument("--first-name", default=None, help="имя (по умолчанию варианты из common.FIRST_NAMES)")
     ap.add_argument("--no-first-name", action="store_true", help="искать только по фамилии")
+    ap.add_argument("--stems", action="store_true", help="дополнительно искать по основам Скиб/Скыб/Шкиб (если сайт ищет по началу фамилии)")
     ap.add_argument("--middle-name", default="")
     ap.add_argument("--types", default=ALL_TYPES)
     ap.add_argument("--max-pages", type=int, default=30)
@@ -127,7 +128,9 @@ def main() -> int:
 
     os.makedirs(os.path.join(a.out, "raw"), exist_ok=True)
     s = session()
-    surnames = [a.last_name] if a.last_name else SURNAMES
+    surnames = [a.last_name] if a.last_name else list(SURNAMES)
+    if a.stems:
+        surnames += [st for st in SURNAME_STEMS if st not in surnames]
     firsts = [""] if a.no_first_name else ([a.first_name] if a.first_name else FIRST_NAMES)
 
     detail_urls = []
@@ -152,6 +155,7 @@ def main() -> int:
         r = get(s, url)
         rec = parse_detail(r.text, url)
         rec["matches_target_name"] = name_matches(rec["title"])
+        rec["matches_surname"] = surname_matches(rec["title"])
         records.append(rec)
         with open(os.path.join(a.out, "raw", slug(url.split("/heroes/")[-1]) + ".html"), "w", encoding="utf-8") as f:
             f.write(r.text)
@@ -173,7 +177,7 @@ def main() -> int:
     flat = [{k: (", ".join(v) if isinstance(v, list) else v) for k, v in r.items() if k != "raw_text"} for r in records]
     save_csv(os.path.join(a.out, "results.csv"), flat)
     hits = [r for r in records if r["matches_target_name"]]
-    print(f"\nВсего записей: {len(records)}; похожих на искомое ФИО: {len(hits)}")
+    print(f"\nВсего записей: {len(records)}; с похожей фамилией: {sum(r['matches_surname'] for r in records)}; похожих на искомое ФИО: {len(hits)}")
     for r in hits:
         print(" *", r["title"], r["url"])
     return 0

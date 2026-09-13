@@ -12,12 +12,22 @@ import requests
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 
-# Варианты написания, которые встречаются в списках потерь и картотеках.
-SURNAMES = ["Скиба", "Скыба", "Скибо", "Скиб"]
-FIRST_NAMES = ["Савелий", "Саввелий", "Савва", "Сава", "Савка", "Савелей", "Савел"]
-PATRONYMICS = ["Прокопьевич", "Проклович", "Прокофьевич", "Прокопович",
-               "Прокопьев", "Проклов", "Прокофьев", "Прокопов"]
-LATIN_SURNAMES = ["Skiba", "Skyba", "Skibа", "Skieba", "Skyba"]
+# Варианты написания. Фамилию в плену записывали немецкие писари латиницей на слух,
+# а в Петрограде переводили обратно в кириллицу, поэтому в картотеках встречаются
+# искажения. Отчество — Проклович (от имени Прокл); писари часто «исправляли» его
+# на привычные Прокопьевич/Прокофьевич.
+SURNAMES = ["Скиба", "Скыба", "Скибо", "Шкиба", "Скеба", "Скибба", "Скыбо", "Шкыба"]
+SURNAME_STEMS = ["Скиб", "Скыб", "Шкиб", "Скеб"]
+FIRST_NAMES = ["Савелий", "Саввелий", "Савва", "Сава", "Савка", "Савелей", "Савел", "Савелiй"]
+PATRONYMICS = ["Проклович", "Проклов", "Прокловичъ",
+               "Прокопьевич", "Прокофьевич", "Прокопович", "Прокопьев", "Прокофьев"]
+LATIN_SURNAMES = ["Skiba", "Skyba", "Skibo", "Shkiba", "Schkiba", "Skibba", "Szkiba", "Skieba", "Skuba"]
+LATIN_FIRST_NAMES = ["Sawelij", "Saweli", "Savelij", "Savely", "Sawelj", "Saveli", "Sawa", "Sawka", "Sawwa"]
+LATIN_PATRONYMICS = ["Proklowitsch", "Proklovich", "Proklow", "Proklov"]
+
+# Регулярные выражения для «мягкого» сравнения найденных записей с искомым ФИО.
+SURNAME_RE = r"(?:ш|с)к[иыеіi]б|скуб|s(?:ch|h)?k[iy]e?b|szkib"
+FIRST_NAME_RE = r"сав[вa]?[еэ]л|савв?а\b|савк|saw[ea]l|savel|sawk?a\b"
 
 
 def session() -> requests.Session:
@@ -44,10 +54,14 @@ def get(s: requests.Session, url: str, retries: int = 4, **kw) -> requests.Respo
 
 
 def name_matches(text: str) -> bool:
-    """Строка похожа на «Скиба Савелий …» (с учётом искажений)."""
+    """Строка похожа на «Скиба Савелий …» с учётом искажений (Скыба, Шкиба, Skyba…)."""
     t = text.lower()
-    return any(sn.lower() in t for sn in SURNAMES) and any(
-        fn.lower() in t for fn in FIRST_NAMES)
+    return bool(re.search(SURNAME_RE, t)) and bool(re.search(FIRST_NAME_RE, t))
+
+
+def surname_matches(text: str) -> bool:
+    """Только фамилия похожа на Скиба (для карточек без имени)."""
+    return bool(re.search(SURNAME_RE, text.lower()))
 
 
 def save_json(path: str, data) -> None:

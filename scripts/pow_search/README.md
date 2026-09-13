@@ -1,6 +1,9 @@
 # Скрипты поиска военнопленного ПМВ по открытым базам
 
-Цель: найти записи о **Скибе Савелии Прокопьевиче (Прокловиче), 1890 г. р.**, в германском плену 1914–1919.
+Цель: найти записи о **Скибе Савелии Прокловиче, 1890 г. р.**, в германском плену 1914–1919.
+Перебираемые варианты написания заданы в `common.py`: фамилия Скиба/Скыба/Скибо/Шкиба/Скеба, латиницей
+Skiba/Skyba/Skibo/Shkiba/Schkiba/Skibba/Szkiba; имя Савелий/Савва/Сава/Савка (Sawelij/Saweli/Savelij/Sawa);
+отчество Проклович/Проклов, а также писарские «исправления» Прокопьевич/Прокофьевич.
 Подробный разбор источников — в `research/skiba_savely_prokopovich_pow_wwi.md`.
 
 > Внимание: из облачной сессии Claude Code эти сайты недоступны (сетевая политика, 403 от прокси),
@@ -21,7 +24,7 @@ sudo apt install poppler-utils             # pdftotext, только для svrt
 
 ```bash
 # 1. gwar.mil.ru — все документы, перебор вариантов фамилии/имени, скачать сканы
-python gwar_search.py --out ../../data/skiba/gwar --download-images
+python gwar_search.py --stems --out ../../data/skiba/gwar --download-images
 
 # 1a. только картотека военнопленных, по фамилии без имени
 python gwar_search.py --last-name Скиба --no-first-name --types potery_voennoplen --out ../../data/skiba/gwar_plen --download-images

@@ -4,7 +4,7 @@
 
 Сайт — одностраничное приложение, поэтому используется Playwright (Chromium).
   pip install playwright && python -m playwright install chromium
-  python icrc_search.py --surname Skiba --surname Skyba --out ../../data/skiba/icrc
+  python icrc_search.py --out ../../data/skiba/icrc      # перебирает Skiba, Skyba, Skibo, Shkiba, Schkiba, Skibba, Szkiba…
 
 ВАЖНО: по данным самого МККК, картотеки по русскому фронту (русские пленные в
 Германии и Австро-Венгрии) хранятся не в Женеве, а в архиве Датского Красного

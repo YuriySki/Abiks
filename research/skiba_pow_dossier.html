@@ -72,6 +72,11 @@ ol.steps li::before{counter-increment:s;content:counter(s);font-family:"Old Stan
 .note b{color:var(--warn)}
 .cite{font-family:"PT Mono",ui-monospace,Menlo,monospace;font-size:14px;color:var(--muted)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.vgrid > div{display:flex;flex-direction:column;gap:8px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{display:inline-block;padding:3px 8px;border:1px solid var(--rule);border-radius:4px;background:var(--card);font-size:14px;line-height:1.3}
+.tags span.main{border-color:var(--accent);color:var(--accent-ink);font-weight:700}
 footer{color:var(--muted);font-size:14px;border-top:1px solid var(--rule);padding-top:16px}
 @media (max-width:520px){
   body{font-size:16px;padding-block:24px 56px}
@@ -80,6 +85,7 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--rule);paddin
   dl.fields{grid-template-columns:1fr;row-gap:4px}
   dl.fields dt{padding-top:8px}
   .two{grid-template-columns:1fr}
+  .vgrid{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion: no-preference){ a{transition:text-decoration-color .15s} }
 </style>
@@ -88,7 +94,7 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--rule);paddin
 <header>
   <div class="eyebrow">Досье · военнопленный Первой мировой · 13 сентября 2026</div>
   <h1>Архивный след Савелия Скибы</h1>
-  <p class="lede">Где искать записи о Скибе Савелии Прокопьевиче (1890 г. р.), солдате, пробывшем в германском плену с 1914 по 1919 год, — в российских, немецких и датских архивах военнопленных, и что уже проверено.</p>
+  <p class="lede">Где искать записи о Скибе Савелии Прокловиче (1890 г. р.), солдате, пробывшем в германском плену с 1914 по 1919 год, — в российских, немецких и датских архивах военнопленных, и что уже проверено.</p>
   <div class="chips">
     <span class="chip ok">Персона установлена</span>
     <span class="chip warn">Базы из облака закрыты сетью</span>
@@ -100,10 +106,10 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--rule);paddin
   <h2>Что известно</h2>
   <div class="card">
     <span class="stamp">Картотека · поисковая</span>
-    <h3>СКИБА Савелий Прокопьевич</h3>
+    <h3>СКИБА Савелий Проклович</h3>
     <dl class="fields">
-      <dt>Отчество</dt><dd>Прокопьевич; в анкете партпереписи 1926 г. — Проклович <small>в списках потерь возможны «Прокопьев», «Проклов», «Прокофьев»</small></dd>
-      <dt>Варианты имени</dt><dd>Савелий, Савва, Сава, Савка, Савелей, Саввелий <small>фамилия: Скиба, Скыба; латиницей Skiba, Skyba</small></dd>
+      <dt>Отчество</dt><dd>Проклович, от имени Прокл <small>так в анкете 1926 г.; на centrasia.org нормализовано как «Прокопьевич». В списках 1914–1917 гг. форма «Проклов»; писари часто заменяли на «Прокопьев», «Прокофьев»</small></dd>
+      <dt>Варианты имени</dt><dd>Савелий, Савва, Сава, Савка, Савелей, Саввелий <small>фамилия: Скиба, Скыба, Скибо, Шкиба, Скеба; латиницей Skiba, Skyba, Skibo, Shkiba, Schkiba, Skibba, Szkiba — см. блок «Варианты написания»</small></dd>
       <dt>Родился</dt><dd>1890, украинец <small>губерния неизвестна — ключевой пробел для списков потерь</small></dd>
       <dt>До войны</dt><dd>рабочий-столяр; сельская школа; эсер 1906–1910</dd>
       <dt>Служба</dt><dd>солдат, 1914 <small>по году рождения призван в 1911 г., то есть встретил войну на действительной службе</small></dd>
@@ -117,10 +123,34 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--rule);paddin
 </section>
 
 <section>
+  <h2>Варианты написания</h2>
+  <p>Запись шла в два приёма. В германском лагере писарь записывал фамилию латиницей на слух, затем список через Копенгаген попадал в Петроград, где его переводили обратно в кириллицу. Отсюда «Скыба», «Скибо», «Шкиба» в русских картотеках и Skyba, Skibba, Szkiba в немецких списках. Редкое отчество «Проклович» писари, и полковые, и советские, нередко заменяли привычным «Прокопьевич». Искать нужно по всем вариантам, а на gwar.mil.ru — по фамилии без имени.</p>
+  <div class="vgrid">
+    <div>
+      <div class="eyebrow">Кириллица · gwar.mil.ru, СВРТ, ВГД</div>
+      <div class="tags"><span class="main">Скиба</span><span>Скыба</span><span>Скибо</span><span>Шкиба</span><span>Скеба</span><span>Скибба</span><span>Скиб-</span><span>Скыб-</span><span>Шкиб-</span></div>
+      <div class="tags"><span class="main">Савелий</span><span>Савва</span><span>Сава</span><span>Савка</span><span>Савелей</span><span>Савелій</span></div>
+      <div class="tags"><span class="main">Проклович</span><span>Проклов</span><span>Прокопьевич</span><span>Прокофьевич</span><span>Прокопьев</span></div>
+    </div>
+    <div>
+      <div class="eyebrow">Латиница · МККК, Rigsarkivet, Германия</div>
+      <div class="tags"><span class="main">Skiba</span><span>Skyba</span><span>Skibo</span><span>Shkiba</span><span>Schkiba</span><span>Skibba</span><span>Szkiba</span><span>Skieba</span></div>
+      <div class="tags"><span class="main">Sawelij</span><span>Saweli</span><span>Savelij</span><span>Savely</span><span>Sawa</span><span>Sawka</span></div>
+      <div class="tags"><span class="main">Proklowitsch</span><span>Proklow</span><span>Proklovich</span></div>
+    </div>
+    <div>
+      <div class="eyebrow">Дореформенная печать · списки 1914–1917</div>
+      <div class="tags"><span class="main">Скиба Савелій Прокловъ</span></div>
+      <p class="tip">В PDF-списках СВРТ орфография уже современная; в сканах самих печатных списков на gwar.mil.ru — старая.</p>
+    </div>
+  </div>
+</section>
+
+<section>
   <h2>Что проверено в этой сессии</h2>
   <p class="note"><b>Прямой доступ к архивным базам из облачной сессии закрыт.</b> Прокси трёх ваших окружений Claude Code («Работа», «Тестовая», «Default Cloud Environment») отвечает 403 на соединение с gwar.mil.ru, 1914.svrt.ru, svrt.ru, grandeguerre.icrc.org, centrasia.org, forum.vgd.ru, rigsarkivet.dk и deutsche-digitale-bibliothek.de. Автоматический парсинг не выполнялся; протоколы проверки лежат в репозитории (<span class="mono">data/skiba/</span>).</p>
   <ul>
-    <li>Единственный работавший канал — веб-поиск. В проиндексированных страницах gwar.mil.ru, 1914.svrt.ru и forum.vgd.ru записи «Скиба Савелий» нет. Это не доказательство отсутствия: поисковики индексируют лишь малую долю карточек.</li>
+    <li>Единственный работавший канал — веб-поиск. В проиндексированных страницах gwar.mil.ru, 1914.svrt.ru и forum.vgd.ru нет ни «Скиба Савелий», ни вариантов «Скибо», «Скыба», «Шкиба», «Савелий Проклович / Проклов», ни латинских Skiba, Skibo, Skyba, Shkiba с именем Sawelij / Savelij. Это не доказательство отсутствия: поисковики индексируют лишь малую долю карточек.</li>
     <li>PDF-списки СВРТ по Волынской и Бессарабской губерниям выдаются поисковиком на запрос «Скиба Савелий» — их нужно открыть и проверить вручную.</li>
     <li>Скрипты для gwar.mil.ru, 1914.svrt.ru и МККК подготовлены (<span class="mono">scripts/pow_search/</span>), но на живых сайтах не проверялись.</li>
   </ul>
