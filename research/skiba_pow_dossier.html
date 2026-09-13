@@ -1,0 +1,269 @@
+<title>Архивный след Савелия Скибы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=PT+Sans:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap">
+<style>
+:root{
+  --paper:#EFEFEA; --card:#F8F7F1; --ink:#22251F; --muted:#666A60; --rule:#CDCFC5;
+  --accent:#5A4B9C; --accent-ink:#4A3C86; --accent-soft:#E9E6F4;
+  --warn:#8A5A0B; --warn-soft:#F5E9CF; --ok:#3B6B3A; --ok-soft:#DFEBDB;
+  --shadow:0 1px 0 rgba(34,37,31,.06), 0 8px 24px -18px rgba(34,37,31,.35);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1D1A; --card:#242720; --ink:#E7E5DC; --muted:#A4A79C; --rule:#383C33;
+    --accent:#B3A6EE; --accent-ink:#C4B9F4; --accent-soft:#2A2740;
+    --warn:#E3B764; --warn-soft:#3A2F16; --ok:#9CCB98; --ok-soft:#22301F;
+    --shadow:0 1px 0 rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1D1A; --card:#242720; --ink:#E7E5DC; --muted:#A4A79C; --rule:#383C33;
+  --accent:#B3A6EE; --accent-ink:#C4B9F4; --accent-soft:#2A2740;
+  --warn:#E3B764; --warn-soft:#3A2F16; --ok:#9CCB98; --ok-soft:#22301F;
+  --shadow:0 1px 0 rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"PT Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:17px;line-height:1.55;padding-inline:20px;padding-block:32px 72px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+h1,h2,h3{font-family:"Old Standard TT",Georgia,"Times New Roman",serif;font-weight:700;line-height:1.15;margin:0;text-wrap:balance}
+h1{font-size:clamp(30px,5.5vw,44px);letter-spacing:-.005em}
+h2{font-size:26px;padding-top:6px}
+h3{font-size:19px;font-weight:400;font-style:italic}
+p{margin:0}
+a{color:var(--accent-ink);text-decoration-color:color-mix(in srgb,var(--accent) 45%,transparent);text-underline-offset:3px}
+a:hover{text-decoration-color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+header{display:flex;flex-direction:column;gap:14px}
+header .lede{font-size:19px;line-height:1.45;color:var(--ink);max-width:62ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;padding:5px 11px;border-radius:999px;border:1px solid var(--rule);background:var(--card)}
+.chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+.chip.ok{color:var(--ok);background:var(--ok-soft);border-color:transparent}.chip.ok::before{background:var(--ok)}
+.chip.warn{color:var(--warn);background:var(--warn-soft);border-color:transparent}.chip.warn::before{background:var(--warn)}
+.chip.na{color:var(--muted)}
+section{display:flex;flex-direction:column;gap:18px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:6px;box-shadow:var(--shadow);padding:22px 24px;position:relative}
+.card .stamp{position:absolute;top:14px;right:16px;font-family:"PT Mono",ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);padding:3px 7px;border-radius:3px;transform:rotate(-4deg);opacity:.85}
+.card h3{margin-bottom:12px;font-style:normal;font-weight:700;font-size:20px}
+dl.fields{display:grid;grid-template-columns:max-content 1fr;column-gap:18px;row-gap:9px;margin:0}
+dl.fields dt{color:var(--muted);font-size:14px;padding-top:2px}
+dl.fields dd{margin:0}
+dl.fields dd small{display:block;color:var(--muted);font-size:14px}
+.unknown{color:var(--muted);font-style:italic}
+.mono{font-family:"PT Mono",ui-monospace,Menlo,monospace;font-size:.92em}
+ul,ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px}
+ol.steps{counter-reset:s;list-style:none;padding:0;gap:14px}
+ol.steps li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+ol.steps li::before{counter-increment:s;content:counter(s);font-family:"Old Standard TT",Georgia,serif;font-size:24px;line-height:1;color:var(--accent);padding-top:1px}
+.src{display:flex;flex-direction:column;gap:10px;padding:18px 0;border-top:1px solid var(--rule)}
+.src:last-child{border-bottom:1px solid var(--rule)}
+.src h3{font-style:normal;font-weight:700;font-size:19px}
+.src .what{color:var(--ink)}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{display:inline-block;font-size:14px;font-weight:700;text-decoration:none;color:var(--accent-ink);background:var(--accent-soft);padding:6px 11px;border-radius:4px;border:1px solid transparent;max-width:100%;overflow-wrap:anywhere}
+.links a:hover{border-color:var(--accent)}
+.tip{font-size:15px;color:var(--muted);border-left:3px solid var(--accent);padding-left:12px}
+.note{background:var(--warn-soft);color:var(--ink);border-radius:6px;padding:14px 16px;font-size:15.5px}
+.note b{color:var(--warn)}
+.cite{font-family:"PT Mono",ui-monospace,Menlo,monospace;font-size:14px;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--rule);padding-top:16px}
+@media (max-width:520px){
+  body{font-size:16px;padding-block:24px 56px}
+  .card{padding:18px 16px}
+  .card .stamp{position:static;display:inline-block;margin-bottom:10px;transform:none}
+  dl.fields{grid-template-columns:1fr;row-gap:4px}
+  dl.fields dt{padding-top:8px}
+  .two{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: no-preference){ a{transition:text-decoration-color .15s} }
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Досье · военнопленный Первой мировой · 13 сентября 2026</div>
+  <h1>Архивный след Савелия Скибы</h1>
+  <p class="lede">Где искать записи о Скибе Савелии Прокопьевиче (1890 г. р.), солдате, пробывшем в германском плену с 1914 по 1919 год, — в российских, немецких и датских архивах военнопленных, и что уже проверено.</p>
+  <div class="chips">
+    <span class="chip ok">Персона установлена</span>
+    <span class="chip warn">Базы из облака закрыты сетью</span>
+    <span class="chip na">Веб-поиск: записи не найдены</span>
+  </div>
+</header>
+
+<section>
+  <h2>Что известно</h2>
+  <div class="card">
+    <span class="stamp">Картотека · поисковая</span>
+    <h3>СКИБА Савелий Прокопьевич</h3>
+    <dl class="fields">
+      <dt>Отчество</dt><dd>Прокопьевич; в анкете партпереписи 1926 г. — Проклович <small>в списках потерь возможны «Прокопьев», «Проклов», «Прокофьев»</small></dd>
+      <dt>Варианты имени</dt><dd>Савелий, Савва, Сава, Савка, Савелей, Саввелий <small>фамилия: Скиба, Скыба; латиницей Skiba, Skyba</small></dd>
+      <dt>Родился</dt><dd>1890, украинец <small>губерния неизвестна — ключевой пробел для списков потерь</small></dd>
+      <dt>До войны</dt><dd>рабочий-столяр; сельская школа; эсер 1906–1910</dd>
+      <dt>Служба</dt><dd>солдат, 1914 <small>по году рождения призван в 1911 г., то есть встретил войну на действительной службе</small></dd>
+      <dt>Плен</dt><dd>Германия, 1914–1919 <small>пленён в 1914 г.: Восточная Пруссия (август–сентябрь) или Польша (ноябрь–декабрь)</small></dd>
+      <dt>Полк, место пленения, лагерь</dt><dd><span class="unknown">неизвестны — именно их ищем</span></dd>
+      <dt>Партия</dt><dd>ВКП(б) с 1 мая 1919 <small>судя по датам, вступил ещё в плену — след для фонда Бюро военнопленных РСФСР в Германии</small></dd>
+      <dt>После плена</dt><dd>нарсудья с 03.1920; зам. губпрокурора 1922–25; Акмолинский губсуд 1926–28; Северо-Казахстанский окрсуд 1928–30; НКЮ КазССР 1930–32; Южно-Казахстанский облсуд 1932; Алма-Атинский горсуд с 1935; член Верховного суда КазССР 01.1944–03.1947 <small>исключён из партии в 1932 г., оправдан и восстановлен</small></dd>
+      <dt>Источники</dt><dd><span class="cite">centrasia.org, person.php?st=1454235398 · анкета партпереписи от 18.01.1927, «17-9-1023 с. 25» (по-видимому, РГАСПИ ф. 17 оп. 9 д. 1023 л. 25 — уточнить)</span></dd>
+    </dl>
+  </div>
+</section>
+
+<section>
+  <h2>Что проверено в этой сессии</h2>
+  <p class="note"><b>Прямой доступ к архивным базам из облачной сессии закрыт.</b> Прокси трёх ваших окружений Claude Code («Работа», «Тестовая», «Default Cloud Environment») отвечает 403 на соединение с gwar.mil.ru, 1914.svrt.ru, svrt.ru, grandeguerre.icrc.org, centrasia.org, forum.vgd.ru, rigsarkivet.dk и deutsche-digitale-bibliothek.de. Автоматический парсинг не выполнялся; протоколы проверки лежат в репозитории (<span class="mono">data/skiba/</span>).</p>
+  <ul>
+    <li>Единственный работавший канал — веб-поиск. В проиндексированных страницах gwar.mil.ru, 1914.svrt.ru и forum.vgd.ru записи «Скиба Савелий» нет. Это не доказательство отсутствия: поисковики индексируют лишь малую долю карточек.</li>
+    <li>PDF-списки СВРТ по Волынской и Бессарабской губерниям выдаются поисковиком на запрос «Скиба Савелий» — их нужно открыть и проверить вручную.</li>
+    <li>Скрипты для gwar.mil.ru, 1914.svrt.ru и МККК подготовлены (<span class="mono">scripts/pow_search/</span>), но на живых сайтах не проверялись.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Российские источники</h2>
+
+  <div class="src">
+    <h3>gwar.mil.ru — «Памяти героев Великой войны 1914–1918»</h3>
+    <p class="what">Именные списки потерь по полкам (РГВИА ф. 16196), картотека Бюро учёта потерь (7,7 млн карточек, с 1960-х хранится в Ялуторовске) и отдельная <b>«Картотека военнопленных»</b> — карточки, составленные по спискам из Германии, которые шли через Датский Красный Крест. В карточке бывают полк, губерния и лагерь.</p>
+    <div class="links">
+      <a href="https://gwar.mil.ru/heroes/?last_name=%D0%A1%D0%BA%D0%B8%D0%B1%D0%B0&groupby_anniversary=1&groupby_type=1">Скиба — все документы</a>
+      <a href="https://gwar.mil.ru/heroes/?last_name=%D0%A1%D0%BA%D0%B8%D0%B1%D0%B0&first_name=%D0%A1%D0%B0%D0%B2%D0%B5%D0%BB%D0%B8%D0%B9&groupby_anniversary=1&groupby_type=1">Скиба Савелий</a>
+      <a href="https://gwar.mil.ru/heroes/?last_name=%D0%A1%D0%BA%D0%B8%D0%B1%D0%B0&groupby_anniversary=1&groupby_type=1&types=potery_voennoplen">Скиба — картотека военнопленных</a>
+      <a href="https://gwar.mil.ru/heroes/?last_name=%D0%A1%D0%BA%D1%8B%D0%B1%D0%B0&groupby_anniversary=1&groupby_type=1">Скыба</a>
+    </div>
+    <p class="tip">Ищите по фамилии без имени: в карточках пленных имя часто искажено обратной транслитерацией или пропущено. Выписывайте поля «Место рождения», «Воинская часть», «Дата события», «Лагерь», «Источник».</p>
+  </div>
+
+  <div class="src">
+    <h3>1914.svrt.ru — алфавитные списки потерь нижних чинов</h3>
+    <p class="what">База СВРТ по печатным «Именным спискам убитым, раненым и без вести пропавшим нижним чинам» 1914–1917 гг., по губерниям. Пленённые в 1914 году обычно значатся как «без вести пропал».</p>
+    <div class="links">
+      <a href="https://1914.svrt.ru/index.php?surname=%D0%A1%D0%BA%D0%B8%D0%B1%D0%B0">Скиба</a>
+      <a href="https://1914.svrt.ru/extsearch.php?surname=%D0%A1%D0%BA%D0%B8%D0%B1%D0%B0&name_ext=1&surname_ext=1">Скиба, расширенный поиск</a>
+      <a href="https://1914.svrt.ru/index.php?surname=%D0%A1%D0%BA%D1%8B%D0%B1%D0%B0">Скыба</a>
+      <a href="https://svrt.ru/1914/volinsk/1914-volinsk-s.pdf">PDF «С», Волынская губ.</a>
+      <a href="https://svrt.ru/1914/bessar/1914-bessar-s.pdf">PDF «С», Бессарабская губ.</a>
+      <a href="https://www.svrt.ru/1914/ekatrinosl/1914-ekatrinosl-s.pdf">PDF «С», Екатеринославская губ.</a>
+      <a href="https://svrt.ru/1914/">Каталог PDF по губерниям</a>
+    </div>
+    <p class="tip">Проверьте также Акмолинскую область (каталоги akmol и akmol2): украинские переселенцы призывались оттуда.</p>
+  </div>
+
+  <div class="src">
+    <h3>Президентская библиотека и ГПИБ — издания Центрального справочного бюро о военнопленных РОКК</h3>
+    <p class="what">Оцифрованные печатные справочники 1916–1920 гг.: списки мест водворения (лагерей и лазаретов) русских пленных в Германии, обзор о составлении списков пленных, сводка Н. Жданова о русских военнопленных. Нужны, чтобы расшифровать лагерь из карточки gwar.mil.ru.</p>
+    <div class="links">
+      <a href="https://www.prlib.ru/item/370959">Список мест водворения, 1917</a>
+      <a href="https://www.prlib.ru/item/370932">Места водворения в Германии и А.-В., 1916</a>
+      <a href="https://www.prlib.ru/item/370940">Ежов. Списки русских военнопленных из Германии, 1917</a>
+      <a href="https://www.prlib.ru/item/362973">Жданов. Русские военнопленные 1914–1918</a>
+      <a href="https://www.prlib.ru/section/685319">Раздел «Русские военные и гражданские пленные»</a>
+    </div>
+  </div>
+
+  <div class="src">
+    <h3>РГВИА — Москва, 2-я Бауманская ул., 3</h3>
+    <p class="what"><span class="cite">ф. 16196</span> — донесения полков о потерях (основа gwar.mil.ru); по известному полку можно заказать копию донесения за дату пленения. <span class="cite">ф. 12651</span> — Главное управление Российского общества Красного Креста, в его составе материалы Центрального справочного бюро о военнопленных: списки из Германии, запросы родственников.</p>
+    <div class="links">
+      <a href="https://guides.rusarchives.ru/funds/17/upravleniya-rossiyskogo-obshchestva-krasnogo-kresta-1867-1919">Путеводитель: фонды РОКК</a>
+      <a href="https://forum.vgd.ru/174/51542/">ВГД о фонде 12651</a>
+    </div>
+  </div>
+
+  <div class="src">
+    <h3>ГАРФ — возвращение из плена, 1918–1920</h3>
+    <p class="what"><span class="cite">ф. Р-3333</span> — Центрпленбеж / Центрэвак НКВД РСФСР (1918–1923, 28 описей): регистрационные карточки и списки пленных, вернувшихся из Германии и Австрии, по санитарным поездам и приёмно-пропускным пунктам. Отдельный фонд <b>Бюро военнопленных при представительстве РСФСР в Германии (1918–1922)</b> важен, если Скиба оставался в Германии до 1919 года и вступил в партию там.</p>
+    <div class="links">
+      <a href="https://guides.rusarchives.ru/funds/centralnoe-upravlenie-po-evakuacii-naseleniya-centroevak-narkomata-vnutrennih-del-rsfsr-1918">Путеводитель: ф. Р-3333</a>
+      <a href="https://guides.rusarchives.ru/funds/byuro-voennoplennyh-pri-predstavitelstve-rsfsr-v-germanii-1918-1922">Бюро военнопленных РСФСР в Германии</a>
+      <a href="https://statearchive.ru/">Запросы в ГАРФ</a>
+    </div>
+  </div>
+
+  <div class="src">
+    <h3>Архивы Казахстана — личные дела</h3>
+    <p class="what">Самый вероятный источник полка и лагеря. В автобиографиях и листках по учёту кадров 1920–1940-х годов обычно прямо написано: «в 1914 г. в бою под … попал в плен, находился в лагере …, вернулся в … 1919 г.».</p>
+    <div class="two">
+      <div><b>Архив Президента РК</b>, Алматы<br><span class="cite">учётная карточка и личное дело коммуниста, анкета партпереписи 1926 г., дело об исключении 1932 г., номенклатурные дела ЦК КП(б)К</span></div>
+      <div><b>ЦГА РК</b>, Алматы<br><span class="cite">Верховный суд КазССР, Наркомюст КазССР, Казгосмединститут</span></div>
+      <div><b>ГА г. Астаны, ГА Акмолинской области</b><br><span class="cite">Акмолинский губсуд, губпрокуратура, 1922–1928</span></div>
+      <div><b>ГА Северо-Казахстанской, Туркестанской, Жамбылской областей</b><br><span class="cite">окрсуд 1928–30, облсуд 1932, Меркенский РИК 1933</span></div>
+    </div>
+  </div>
+
+  <div class="src">
+    <h3>Форумы и проекты</h3>
+    <div class="links">
+      <a href="https://forum.vgd.ru/316/20507/">ВГД: Пленные Первой мировой войны</a>
+      <a href="https://forum.vgd.ru/316/128192/">ВГД: продолжение темы, 2022–2026</a>
+      <a href="https://forum.vgd.ru/1253/19938/">ВГД: фамилия Скиба</a>
+      <a href="https://personalhistory.ru/projects/plen1914-1918.htm">Проект «Российские военнопленные 1914–1918»</a>
+      <a href="https://familio.org/knowledge-base/catalogs/gwarmil">Familio: как искать на gwar.mil.ru</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Немецкие и датские источники</h2>
+  <p>Прусский военный архив в Потсдаме, где лежали дела Военного министерства по пленным и большинства прусских лагерей, сгорел в апреле 1945 года. Bundesarchiv отдельной картотеки иностранных военнопленных Первой мировой не ведёт. Сохранились фонды военных министерств земель-контингентов и отдельные лагерные картотеки в региональных архивах, поэтому без названия лагеря запрос в Германию почти бесперспективен.</p>
+
+  <div class="src">
+    <h3>МККК, Женева — Prisoners of the First World War</h3>
+    <p class="what">Картотека Международного агентства по делам военнопленных: 5 млн карточек, около 2 млн человек. По собственной оговорке МККК она покрывает прежде всего Западный, Румынский и Сербский фронты, а <b>индексы по русскому фронту хранятся в архиве Датского Красного Креста в Копенгагене</b>. Проверить всё же стоит: часть русских пленных проходила через женевские списки.</p>
+    <div class="links">
+      <a href="https://grandeguerre.icrc.org/en/File/Search/">Поиск: Skiba, Skyba · Russian · Military</a>
+      <a href="https://grandeguerre.icrc.org/en/Camps">Список лагерей</a>
+      <a href="https://grandeguerre.icrc.org/Content/help/Introduction_en.pdf">Введение к архиву (PDF)</a>
+    </div>
+  </div>
+
+  <div class="src">
+    <h3>Датский Красный Крест, отдел военнопленных → Rigsarkivet</h3>
+    <p class="what">С осени 1914 года Датский Красный Крест вёл картотеку русских пленных в Германии и Австро-Венгрии, обработал более миллиона писем и шесть миллионов посылок; именно его списки шли в Петроград и легли в основу «Картотеки военнопленных» на gwar.mil.ru. Фонд «Dansk Røde Kors, Krigsfangeafdelingen, København» хранится в Государственном архиве Дании; онлайн картотека не выложена — нужен запрос с ФИО латиницей, годом рождения, полком и лагерем.</p>
+    <div class="links">
+      <a href="https://daisy.rigsarkivet.dk/arkivskabers_arkivserier?a=R%C3%B8de+Kors&d=1&e=2022&ngid=7619817&ngnid=7619898">Фонд в базе Daisy</a>
+      <a href="https://www.rigsarkivet.dk/">Rigsarkivet</a>
+      <a href="https://denstorekrig1914-1918.dk/29216-2/">О датской справочной работе</a>
+    </div>
+  </div>
+
+  <div class="src">
+    <h3>Земельные и региональные архивы Германии — после выяснения лагеря</h3>
+    <div class="two">
+      <div><b>Бавария</b> — Bayerisches Hauptstaatsarchiv, Abt. IV Kriegsarchiv, Leonrodstr. 57, 80636 München, <span class="mono">kriegsarchiv@bayhsta.bayern.de</span><br><span class="cite">Grafenwöhr (первые русские пленные 11.11.1914), Lechfeld, Puchheim, Ingolstadt, Landshut, Bayreuth, Amberg, Regensburg, Hammelburg</span></div>
+      <div><b>Вюртемберг и Баден</b> — Hauptstaatsarchiv Stuttgart (раздел «Kriegs- und Zivilgefangene, Gefallene, Vermisste»), Generallandesarchiv Karlsruhe<br><span class="cite">Ulm, Ludwigsburg-Eglosheim, Münsingen, Weingarten; Mannheim, Heuberg, Tauberbischofsheim</span></div>
+      <div><b>Саксония</b> — Sächsisches Staatsarchiv, Hauptstaatsarchiv Dresden<br><span class="cite">Königsbrück, Bautzen, Zwickau, Chemnitz-Ebersdorf</span></div>
+      <div><b>Северный Рейн-Вестфалия</b> — Landesarchiv NRW, Abt. Westfalen, Bohlweg 2, 48147 Münster<br><span class="cite">сохранились персональные карты русских пленных по вестфальским лагерям: Senne, Münster, Minden, Meschede</span></div>
+    </div>
+    <div class="links">
+      <a href="https://www.gda.bayern.de/fileadmin/user_upload/PDFs_fuer_Publikationen/Kleine_Ausstellungen/Kl-Katalog-39-Kriegsgefangene.pdf">Каталог «Russische Kriegsgefangene in Bayern 1914–1921» (PDF)</a>
+      <a href="https://www.lwl.org/westfaelische-geschichte/portal/Internet/finde/langDatensatz.php?urlID=10&url_tabelle=tab_medien">Пример вестфальской персональной карты</a>
+      <a href="https://ersterweltkrieg.bundesarchiv.de/sites/default/files/documents/content/personensuche_erster_weltkrieg_-_informationen_und_formulare.pdf">Bundesarchiv: персональный поиск за ПМВ (PDF)</a>
+      <a href="https://www.volksbund.de/erinnern-gedenken/graebersuche-online">Volksbund: умершие в плену</a>
+    </div>
+    <p class="tip">Другие земли: Niedersächsisches Landesarchiv (Soltau, Hameln, Celle), Hessisches Staatsarchiv Darmstadt (Darmstadt, Gießen), Landesarchiv Sachsen-Anhalt (Merseburg, Quedlinburg), Landesarchiv Berlin и Brandenburg (Döberitz, Zossen). DRK-Suchdienst и Дрезденский центр документации работают только по Второй мировой.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Порядок действий</h2>
+  <ol class="steps">
+    <li><div><b>gwar.mil.ru</b> — поиск по фамилии без имени (Скиба, Скыба), отдельно тип «Картотека военнопленных». Выписать всех Скиб с именами Савелий, Савва, Сава и всех без имени; сохранить сканы. Цель — полк, губерния, лагерь.</div></li>
+    <li><div><b>1914.svrt.ru и PDF по губерниям</b> — сначала Волынская и Бессарабская, затем украинские губернии и Акмолинская область.</div></li>
+    <li><div><b>Архивы Казахстана</b> — личные дела и автобиографии: полк, место пленения, лагерь, дата возвращения.</div></li>
+    <li><div><b>ГАРФ ф. Р-3333</b> и фонд Бюро военнопленных РСФСР в Германии — регистрация возвращения 1919 года.</div></li>
+    <li><div>С полком и лагерем в руках — <b>МККК</b> для проверки, <b>Rigsarkivet</b> за датской картотекой, <b>земельный архив</b> той земли, где стоял лагерь.</div></li>
+    <li><div><b>РГВИА ф. 16196 и ф. 12651</b> — донесение полка о потерях и переписка справочного бюро по полку и дате.</div></li>
+    <li><div>Запустить скрипты из <span class="mono">scripts/pow_search/</span> на компьютере с обычным интернетом или разрешить эти хосты в сетевой политике окружения Claude Code (<a href="https://code.claude.com/docs/en/claude-code-on-the-web">документация</a>).</div></li>
+  </ol>
+</section>
+
+<footer>Подробная версия с описанием фондов: <span class="mono">research/skiba_savely_prokopovich_pow_wwi.md</span> в ветке <span class="mono">claude/savelyy-priklovych-archives-83nyor</span> репозитория YuriySki/Abiks. Сведения о персоне — по биографии centrasia.org и анкете партпереписи 1926 года; описания фондов — по путеводителям архивов и справкам самих баз.</footer>
+</div>
