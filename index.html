@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abiks Protein Music</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #f2f5f4; --surface: #ffffff; --surface-2: #e9efed; --ink: #17211f; --muted: #5d6c69; --line: #cfd9d6;
+  --accent: #0e7c7b; --accent-ink: #ffffff; --accent-soft: #d6ecea; --amber: #d9a400;
+  --c-f: #bfe0f2; --c-p: #dcebc4; --c-mf: #ffffff; --c-mp1: #9dc6e8; --c-mp2: #d3e4f3; --c-hp: #f6cda6;
+  --c-chord: #8ccb60; --c-accent: #f7e26b; --c-rest: #e3e5e1; --c-other: #eef0ee; --c-ink: #17211f;
+  --focus: #0e7c7b; --danger: #b3261e; --shadow: 0 1px 2px rgba(23,33,31,.08), 0 6px 20px rgba(23,33,31,.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1717; --surface: #172221; --surface-2: #1f2c2b; --ink: #e6eeec; --muted: #94a6a2; --line: #2f403e;
+    --accent: #4fb8b3; --accent-ink: #0b1514; --accent-soft: #1d3b3a; --amber: #e2b93b;
+    --c-f: #2b5a76; --c-p: #3d5a2a; --c-mf: #2a3634; --c-mp1: #2f5a7f; --c-mp2: #23414f; --c-hp: #7a4b22;
+    --c-chord: #3f7a2a; --c-accent: #8a7a1c; --c-rest: #2a3130; --c-other: #202a29; --c-ink: #e6eeec;
+    --focus: #4fb8b3; --danger: #ff8a80; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1717; --surface: #172221; --surface-2: #1f2c2b; --ink: #e6eeec; --muted: #94a6a2; --line: #2f403e;
+  --accent: #4fb8b3; --accent-ink: #0b1514; --accent-soft: #1d3b3a; --amber: #e2b93b;
+  --c-f: #2b5a76; --c-p: #3d5a2a; --c-mf: #2a3634; --c-mp1: #2f5a7f; --c-mp2: #23414f; --c-hp: #7a4b22;
+  --c-chord: #3f7a2a; --c-accent: #8a7a1c; --c-rest: #2a3130; --c-other: #202a29; --c-ink: #e6eeec;
+  --focus: #4fb8b3; --danger: #ff8a80; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.35);
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 24px 56px; padding-inline: 20px; }
+h1, h2, h3 { font-family: "Fraunces", Georgia, "Times New Roman", serif; font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(30px, 4.6vw, 44px); line-height: 1.05; }
+h2 { font-size: 22px; margin-block: 0 12px; }
+h3 { font-size: 17px; margin-block: 18px 8px; }
+p { margin: 0; }
+a { color: var(--accent); }
+.masthead { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: flex-end; justify-content: space-between; margin-bottom: 22px; }
+.masthead .lede { max-width: 62ch; color: var(--muted); margin-top: 8px; }
+.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.cite { font-size: 13px; color: var(--muted); max-width: 46ch; }
+.tools { display: flex; gap: 8px; align-items: center; }
+.tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+.tab { appearance: none; background: none; border: 0; border-bottom: 3px solid transparent; padding: 10px 14px; font: inherit; font-weight: 600; color: var(--muted); cursor: pointer; margin-bottom: -1px; }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.tab:focus-visible, button:focus-visible, textarea:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.panel { display: grid; gap: 20px; }
+.panel > *, .card > * { min-width: 0; max-width: 100%; }
+[hidden] { display: none !important; }
+.score pre { white-space: pre-wrap; word-break: break-word; margin: 0; font-size: 12.5px; line-height: 1.5; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+.card.plain { background: transparent; border: 0; padding: 0; }
+textarea, input, select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; width: 100%; }
+textarea { font-family: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13.5px; line-height: 1.55; min-height: 120px; resize: vertical; }
+label { font-size: 13px; color: var(--muted); font-weight: 500; display: block; margin-bottom: 4px; }
+.row { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: end; }
+.row > div { flex: 1 1 160px; min-width: 0; }
+.row > div.narrow { flex: 0 1 120px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.chip { font: inherit; font-size: 13px; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); cursor: pointer; }
+.chip:hover { border-color: var(--accent); }
+.btn { font: inherit; font-weight: 600; padding: 9px 18px; border-radius: 6px; border: 1px solid transparent; background: var(--accent); color: var(--accent-ink); cursor: pointer; }
+.btn.secondary { background: var(--surface); color: var(--ink); border-color: var(--line); }
+.btn:disabled { opacity: .55; cursor: default; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+.status { font-size: 13px; color: var(--muted); }
+.error { color: var(--danger); font-weight: 500; }
+.summary { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--muted); margin-bottom: 12px; }
+.summary b { color: var(--ink); font-weight: 600; }
+.score { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px; }
+.score svg { max-width: 100%; height: auto; }
+:root[data-theme="dark"] .score, .dark .score { filter: none; }
+.transport { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 12px; }
+.progress { flex: 1 1 200px; height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+.progress > i { display: block; height: 100%; width: 0; background: var(--accent); }
+.time { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size: 13px; color: var(--muted); }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table.duplex { border-collapse: collapse; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; font-variant-numeric: tabular-nums; }
+table.duplex th { text-align: left; font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 500; color: var(--muted); padding: 4px 10px; white-space: nowrap; position: sticky; left: 0; background: var(--surface); border-right: 1px solid var(--line); }
+table.duplex td { padding: 3px 6px; text-align: center; white-space: nowrap; border-bottom: 1px solid var(--surface-2); }
+table.duplex td.aa { font-weight: 600; letter-spacing: .15em; border: 1px solid var(--line); border-radius: 3px; color: var(--c-ink); }
+td.k-f { background: var(--c-f); } td.k-p { background: var(--c-p); } td.k-mf { background: var(--c-mf); }
+td.k-mp { background: linear-gradient(180deg, var(--c-mp1), var(--c-mp2)); } td.k-cresc, td.k-dim { background: var(--c-hp); }
+td.k-chord { background: var(--c-chord); } td.k-accent { background: var(--c-accent); } td.k-rest { background: var(--c-rest); } td.k-other { background: var(--c-other); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+.legend i { display: inline-block; width: 14px; height: 14px; border: 1px solid var(--line); border-radius: 3px; vertical-align: -2px; margin-right: 5px; }
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+.seqout { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13.5px; line-height: 1.7; word-break: break-all; letter-spacing: .05em; background: var(--surface-2); border-radius: 6px; padding: 10px 12px; }
+.fid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin: 12px 0; }
+.fid div { background: var(--surface-2); border-radius: 6px; padding: 8px 10px; font-size: 13px; color: var(--muted); }
+.fid b { display: block; font-size: 20px; color: var(--ink); font-family: "Fraunces", Georgia, serif; font-weight: 600; }
+details summary { cursor: pointer; color: var(--accent); font-weight: 500; }
+ul.diffs { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: var(--muted); }
+.note { font-size: 13px; color: var(--muted); }
+.copyrow { display: flex; gap: 10px; align-items: center; margin-top: 8px; }
+footer { margin-top: 36px; color: var(--muted); font-size: 13px; max-width: 70ch; }
+@media (max-width: 640px) { .card { padding: 14px; } h2 { font-size: 20px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <div class="eyebrow" data-i18n="eyebrow">Дуплетный код белок ↔ музыка</div>
+      <h1>Abiks Protein Music</h1>
+      <p class="lede" data-i18n="lede">Аминокислотная последовательность превращается в мелодию: пара остатков задаёт высоту ноты, заряд — длительность, гидрофильность — октаву, склонность к α-спирали или β-слою — громкость, метионин — паузы, пролин — аккорды. Код вырожден, поэтому музыку можно перевести обратно в белок.</p>
+    </div>
+    <div>
+      <p class="cite">L.T. Nadirova, A.V. Zhigailov. <em>How does a protein sound like: Converting amino acid sequences into music, and back.</em> Heliyon 12 (2026) e45432 · <a href="https://doi.org/10.1016/j.heliyon.2026.e45432">doi:10.1016/j.heliyon.2026.e45432</a></p>
+      <div class="tools" style="margin-top:10px"><button class="chip" id="lang" type="button">English</button></div>
+    </div>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-fwd" aria-selected="true" aria-controls="panel-fwd" data-i18n="tabFwd">Белок → музыка</button>
+    <button class="tab" role="tab" id="tab-rev" aria-selected="false" aria-controls="panel-rev" data-i18n="tabRev">Музыка → белок</button>
+  </div>
+
+  <section class="panel" id="panel-fwd" role="tabpanel">
+    <div class="card">
+      <label for="seq" data-i18n="seqLabel">Последовательность (FASTA или однобуквенный код; несколько цепей — несколько записей FASTA)</label>
+      <textarea id="seq" spellcheck="false"></textarea>
+      <div class="chips" id="fwd-examples"></div>
+      <div class="row" style="margin-top:14px">
+        <div>
+          <label for="loc" data-i18n="locLabel">Локализация белка → темп (табл. 8)</label>
+          <select id="loc"></select>
+        </div>
+        <div class="narrow">
+          <label for="bpm" data-i18n="bpmLabel">Темп, уд/мин</label>
+          <input id="bpm" type="number" min="20" max="240" placeholder="auto">
+        </div>
+        <div>
+          <label for="title" data-i18n="titleLabel">Название</label>
+          <input id="title" type="text" placeholder="hPrP91-230-nat">
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="convert" type="button" data-i18n="convert">Конвертировать</button>
+        <span class="status" id="fwd-status"></span>
+      </div>
+    </div>
+
+    <div id="fwd-results" hidden>
+      <div class="summary" id="fwd-summary"></div>
+      <div class="score" id="fwd-score"></div>
+      <div class="transport">
+        <button class="btn secondary" id="fwd-play" type="button" data-i18n="play">▶ Играть</button>
+        <div class="progress"><i id="fwd-bar"></i></div>
+        <span class="time" id="fwd-time">0:00 / 0:00</span>
+      </div>
+      <h3 data-i18n="tableHead">Как каждая пара аминокислот стала звуком</h3>
+      <div id="fwd-tables"></div>
+      <div class="legend" id="legend"></div>
+      <h3>ABC</h3>
+      <textarea id="fwd-abc" readonly spellcheck="false" style="min-height:160px"></textarea>
+      <div class="copyrow"><button class="btn secondary" id="copy-abc" type="button" data-i18n="copy">Скопировать</button><span class="note" data-i18n="abcNote">Текст ABC открывается в EasyABC, MuseScore (импорт ABC) и любом онлайн-редакторе ABC; MIDI и MusicXML экспортирует консольная утилита.</span></div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-rev" role="tabpanel" hidden>
+    <div class="card">
+      <label for="abc" data-i18n="abcLabel">Музыка в нотации ABC (ноты, паузы, аккорды в [ ], форшлаги в { }, динамика !p! !mf! !f!, акценты !>!, крещендо !crescendo(! … !crescendo)!)</label>
+      <textarea id="abc" spellcheck="false" style="min-height:180px"></textarea>
+      <div class="chips" id="rev-examples"></div>
+      <div class="row" style="margin-top:14px">
+        <div class="narrow">
+          <label for="beam" data-i18n="beamLabel">Ширина луча поиска</label>
+          <input id="beam" type="number" min="4" max="512" value="64">
+        </div>
+        <div class="narrow">
+          <label for="seed" data-i18n="seedLabel">Вариант (seed)</label>
+          <input id="seed" type="number" min="0" max="9999" value="0">
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="decode" type="button" data-i18n="decode">Перевести в белок</button>
+        <span class="status" id="rev-status"></span>
+      </div>
+    </div>
+    <div id="rev-results" hidden></div>
+  </section>
+
+  <footer>
+    <p data-i18n="foot">Реализация статьи в открытом коде: таблицы 1–8 закодированы дословно, неоднозначные места описаны в README. Консольная утилита: <span class="mono">abiks encode / decode</span> — экспорт в ABC, MIDI, MusicXML и обратный перевод.</p>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/abcjs@6.4.4/dist/abcjs-basic-min.js"></script>
+<script type="module">
+import { proteinToMusic, parseFasta, TEMPOS } from './src/index.js';
+import { scoreToAbc, parseAbc } from './src/abc.js';
+import { scoreToEvents } from './src/events.js';
+import { musicToProtein } from './src/music2protein.js';
+import { ticksToString } from './src/theory.js';
+
+const I18N = {
+  ru: {
+    eyebrow: 'Дуплетный код белок ↔ музыка',
+    lede: 'Аминокислотная последовательность превращается в мелодию: пара остатков задаёт высоту ноты, заряд — длительность, гидрофильность — октаву, склонность к α-спирали или β-слою — громкость, метионин — паузы, пролин — аккорды. Код вырожден, поэтому музыку можно перевести обратно в белок.',
+    tabFwd: 'Белок → музыка', tabRev: 'Музыка → белок',
+    seqLabel: 'Последовательность (FASTA или однобуквенный код; несколько цепей — несколько записей FASTA)',
+    locLabel: 'Локализация белка → темп (табл. 8)', bpmLabel: 'Темп, уд/мин', titleLabel: 'Название', convert: 'Конвертировать',
+    play: '▶ Играть', stop: '■ Стоп', tableHead: 'Как каждая пара аминокислот стала звуком', copy: 'Скопировать', copied: 'Скопировано',
+    abcNote: 'Текст ABC открывается в EasyABC, MuseScore (импорт ABC) и любом онлайн-редакторе ABC; MIDI и MusicXML экспортирует консольная утилита.',
+    abcLabel: 'Музыка в нотации ABC (ноты, паузы, аккорды в [ ], форшлаги в { }, динамика !p! !mf! !f!, акценты !>!, крещендо !crescendo(! … !crescendo)!)',
+    beamLabel: 'Ширина луча поиска', seedLabel: 'Вариант (seed)', decode: 'Перевести в белок',
+    foot: 'Реализация статьи в открытом коде: таблицы 1–8 закодированы дословно, неоднозначные места описаны в README. Консольная утилита: abiks encode / decode — экспорт в ABC, MIDI, MusicXML и обратный перевод.',
+    working: 'Считаю…', done: 'Готово', tempo: 'Темп', texture: 'Фактура', chains: 'Цепей', elements: 'Звуков', residues: 'остатков',
+    mono: 'монофония', bi: 'бифония (фортепиано + гитара)', poly: 'полифония',
+    rShift: 'Сдвиг длит.', rNote: 'Нота', rAa: 'Аминокислоты', rSig: 'σ', rSig6: 'Σ6σ', rA: 'αav', rB: 'βav',
+    lf: 'громко (f)', lp: 'тихо (p)', lmf: 'умеренно (mf)', lmp: 'умеренно тихо (mp)', lhp: 'крещендо / диминуэндо', lchord: 'аккорд', laccent: 'акцент (>)', lrest: 'пауза / модификатор',
+    exact: 'звуков воспроизведено точно', errPitch: 'ошибок высоты', errDur: 'ошибок длительности', errOct: 'ошибок октавы', errDyn: 'ошибок динамики', errAcc: 'ошибок акцента',
+    diffs: 'Отличия', wanted: 'нужно', got: 'получено', alt: 'Другие варианты', reenc: 'Музыка, полученная из найденного белка', seqHead: 'Найденная последовательность', notes: 'Замечания',
+    invalid: 'Ошибка', exFwd: ['Прион hPrP 91–230 (Гольджи)', 'Прион hPrP P102L/P105L (агресомы)', 'Инсулин: цепи B и A (секреция)', 'Рибосомный белок RPS6 (цитозоль)', 'Фрагмент Rab5 79–107 (лизосома)'],
+    exRev: ['Моцарт, Rondo alla Turca (фрагмент)', 'Гамма до мажор с динамикой', 'Мелодия прионного белка'],
+  },
+  en: {
+    eyebrow: 'Doublet code protein ↔ music',
+    lede: 'An amino-acid sequence becomes a melody: each residue pair sets the pitch, charge sets the note length, hydrophilicity the octave, α-helix/β-sheet propensity the loudness, methionine the rests, proline the chords. The code is degenerate, so music can be translated back into a protein.',
+    tabFwd: 'Protein → music', tabRev: 'Music → protein',
+    seqLabel: 'Sequence (FASTA or one-letter code; several chains = several FASTA records)',
+    locLabel: 'Protein localization → tempo (Table 8)', bpmLabel: 'Tempo, bpm', titleLabel: 'Title', convert: 'Convert',
+    play: '▶ Play', stop: '■ Stop', tableHead: 'How each amino-acid pair became a sound', copy: 'Copy', copied: 'Copied',
+    abcNote: 'The ABC text opens in EasyABC, MuseScore (ABC import) and any online ABC editor; the command-line tool also exports MIDI and MusicXML.',
+    abcLabel: 'Music in ABC notation (notes, rests, chords in [ ], grace notes in { }, dynamics !p! !mf! !f!, accents !>!, crescendo !crescendo(! … !crescendo)!)',
+    beamLabel: 'Search beam width', seedLabel: 'Variant (seed)', decode: 'Translate into a protein',
+    foot: 'Open-source implementation of the paper: Tables 1–8 are encoded verbatim, ambiguous points are documented in the README. Command line: abiks encode / decode — ABC, MIDI, MusicXML export and reverse translation.',
+    working: 'Working…', done: 'Done', tempo: 'Tempo', texture: 'Texture', chains: 'Chains', elements: 'Sounds', residues: 'residues',
+    mono: 'monophony', bi: 'biphony (piano + guitar)', poly: 'polyphony',
+    rShift: 'Duration shift', rNote: 'Note', rAa: 'Amino acids', rSig: 'σ', rSig6: 'Σ6σ', rA: 'αav', rB: 'βav',
+    lf: 'loud (f)', lp: 'quiet (p)', lmf: 'moderately loud (mf)', lmp: 'moderately quiet (mp)', lhp: 'crescendo / diminuendo', lchord: 'chord', laccent: 'accent (>)', lrest: 'rest / modifier',
+    exact: 'sounds reproduced exactly', errPitch: 'pitch errors', errDur: 'duration errors', errOct: 'octave errors', errDyn: 'dynamics errors', errAcc: 'accent errors',
+    diffs: 'Differences', wanted: 'wanted', got: 'got', alt: 'Other variants', reenc: 'Music produced by the found protein', seqHead: 'Found sequence', notes: 'Notes',
+    invalid: 'Error', exFwd: ['Prion hPrP 91–230 (Golgi)', 'Prion hPrP P102L/P105L (aggresomes)', 'Insulin: chains B and A (secreted)', 'Ribosomal protein RPS6 (cytosol)', 'Rab5 fragment 79–107 (lysosome)'],
+    exRev: ['Mozart, Rondo alla Turca (excerpt)', 'C major scale with dynamics', 'Melody of the prion protein'],
+  },
+};
+let lang = 'ru';
+const t = (k) => I18N[lang][k] ?? k;
+
+const HPRP = 'QGGGTHSQWNKPSKPKTNMKHMAGAAAAGAVVGGLGGYMLGSAMSRPIIHFGSDYEDRYYRENMHRYPNQVYYRPMDEYSNQNNFVHDCVNITIKQHTVTTTTKGENFTETDVKMMERVVEQMCITQYERESQAYYQRGSS';
+const EXAMPLES_FWD = [
+  { seq: '>hPrP91-230-nat\n' + HPRP, loc: 'golgi', title: 'hPrP91-230-nat' },
+  { seq: '>hPrP91-230-mut\n' + HPRP.replace('KPSKPK', 'KLSKLK'), loc: 'aggresome', title: 'hPrP91-230-mut' },
+  { seq: '>Insulin B-chain\nFVNQHLCGSHLVEALYLVCGERGFFYTPKT\n>Insulin A-chain\nGIVEQCCTSICSLYQLENYCN', loc: 'secreted', title: 'Human insulin' },
+  { seq: '>AtRPS6A\nMKFNVANPTTGCQKKLEIDDDQKLRAFYDKRISQEVSGDALGEEFKGYVFKIKGGCDKQGFPMKQGVLTPGRVRLLLHRGTPCFRGHGRRTGERRRKSVRGCIVSPDLSVLNLVIVKKGENDLPGLTDTEKPRMRGPKRASKIRKLFNLKEDDVRTYVNTYRRKFTNKKGKEVSKAPKIQRLVTPLTLQRKRARIADKKKIAKANSEAADYQKLLASRLKEQRDRRSESLAKKRSRLSSAAAKPSVTA', loc: 'cytosol', bpm: 80, title: 'RPS6-nat' },
+  { seq: '>Rab5 79-107\nGQERYHSLAPMYYRGAQAAIVVYDITNTDT', loc: 'lysosome', title: 'Rab5 79-107' },
+];
+const MOZART = `X:1
+T:Rondo alla Turca (simplified excerpt)
+M:2/4
+L:1/16
+Q:"Allegretto" 1/4=126
+K:Am
+!p! B A ^G A | c4 d c B c | e4 f e ^d e | B A ^G A B A ^G A | c4 a2 c2 |
+{a}d4 c2 B2 | {c}B4 A2 B2 | {B}c4 B2 A2 | ^G4 z4 |
+!f! e2 e2 | f2 f2 e c d B | c2 z2 !p! e2 e2 | f2 f2 e c d B | c2 z2 !f! d2 d2 |
+e2 e2 d B c A | B2 z2 !p! d2 d2 | e2 e2 d B c A | B2 z2 |
+!f! c4 d c B c | e4 f e ^d e | !crescendo(! B A ^G A B A ^G A !crescendo)! | !f! c4 a2 c2 |
+{a}d4 c2 B2 | A4 z4 |]`;
+const SCALE = `X:1
+T:Scale
+M:4/4
+L:1/8
+Q:1/4=100
+K:C
+!p! C D E F | G A B c | !mf! [C E G]4 | !f! c B A G | F E D C2 |]`;
+const EXAMPLES_REV = [
+  { abc: MOZART },
+  { abc: SCALE },
+  { abc: () => scoreToAbc(proteinToMusic(HPRP, { localization: 'golgi', title: 'hPrP91-230-nat' })) },
+];
+
+const $ = (id) => document.getElementById(id);
+const el = (tag, attrs = {}, ...children) => {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) { if (k === 'class') n.className = v; else if (k === 'text') n.textContent = v; else n.setAttribute(k, v); }
+  for (const c of children) if (c !== null && c !== undefined) n.append(c);
+  return n;
+};
+
+// ------------------------------------------------------------------ language
+function applyLang() {
+  document.documentElement.lang = lang;
+  for (const node of document.querySelectorAll('[data-i18n]')) node.textContent = t(node.dataset.i18n);
+  $('lang').textContent = lang === 'ru' ? 'English' : 'Русский';
+  buildExampleChips();
+  buildLegend();
+  fillLocalizations();
+  for (const b of [$('fwd-play'), ...document.querySelectorAll('.play-rev')]) if (b && !b.dataset.playing) b.textContent = t('play');
+}
+$('lang').addEventListener('click', () => { lang = lang === 'ru' ? 'en' : 'ru'; try { localStorage.setItem('abiks-lang', lang); } catch (e) {} applyLang(); });
+try { const saved = localStorage.getItem('abiks-lang'); if (saved === 'en' || saved === 'ru') lang = saved; } catch (e) {}
+
+function fillLocalizations() {
+  const sel = $('loc');
+  const current = sel.value;
+  sel.replaceChildren(...TEMPOS.map((x) => el('option', { value: x.id, text: `${x.localization} — ${x.marking}, ${x.bpm}` })));
+  sel.value = current || 'cytosol';
+}
+function buildExampleChips() {
+  $('fwd-examples').replaceChildren(...EXAMPLES_FWD.map((ex, i) => el('button', { class: 'chip', type: 'button', text: t('exFwd')[i] })));
+  [...$('fwd-examples').children].forEach((chip, i) => chip.addEventListener('click', () => { const ex = EXAMPLES_FWD[i]; $('seq').value = ex.seq; $('loc').value = ex.loc; $('bpm').value = ex.bpm || ''; $('title').value = ex.title; convert(); }));
+  $('rev-examples').replaceChildren(...EXAMPLES_REV.map((ex, i) => el('button', { class: 'chip', type: 'button', text: t('exRev')[i] })));
+  [...$('rev-examples').children].forEach((chip, i) => chip.addEventListener('click', () => { const ex = EXAMPLES_REV[i]; $('abc').value = typeof ex.abc === 'function' ? ex.abc() : ex.abc; }));
+}
+function buildLegend() {
+  const items = [['k-f', 'lf'], ['k-p', 'lp'], ['k-mf', 'lmf'], ['k-mp', 'lmp'], ['k-cresc', 'lhp'], ['k-chord', 'lchord'], ['k-accent', 'laccent'], ['k-rest', 'lrest']];
+  $('legend').replaceChildren(...items.map(([cls, key]) => { const s = el('span'); const i = el('i'); i.className = cls; i.style.background = cls === 'k-mp' ? 'linear-gradient(180deg, var(--c-mp1), var(--c-mp2))' : `var(--c-${cls.slice(2)})`; if (cls === 'k-cresc') i.style.background = 'var(--c-hp)'; s.append(i, t(key)); return s; }));
+}
+
+// ------------------------------------------------------------------ tabs
+for (const tab of document.querySelectorAll('.tab')) tab.addEventListener('click', () => {
+  for (const x of document.querySelectorAll('.tab')) x.setAttribute('aria-selected', x === tab ? 'true' : 'false');
+  $('panel-fwd').hidden = tab.id !== 'tab-fwd';
+  $('panel-rev').hidden = tab.id !== 'tab-rev';
+});
+
+// ------------------------------------------------------------------ rendering
+function renderScore(container, abc) {
+  container.replaceChildren();
+  const clean = abc.split('\n').filter((l) => !/^%%(localization|abiks|sequence)/.test(l)).join('\n');
+  try {
+    if (!window.ABCJS) throw new Error('abcjs not loaded');
+    ABCJS.renderAbc(container, clean, { responsive: 'resize', add_classes: true, paddingtop: 6, paddingbottom: 6, staffwidth: 900 });
+  } catch (err) {
+    container.append(el('pre', { class: 'mono', text: clean }));
+  }
+}
+
+function levelClass(row) {
+  if (row.role === 'rest' || row.role === 'mod' || row.role === 'modpair2' || row.role === 'arp' || row.role === 'gg-accent' || row.role === 'nonharm') return 'k-rest';
+  if (row.role === 'chord') return 'k-chord';
+  if (row.accent) return 'k-accent';
+  if (row.level === 'cresc' || row.level === 'dim') return 'k-cresc';
+  if (row.level === 'f') return 'k-f';
+  if (row.level === 'p') return 'k-p';
+  if (row.level === 'mp') return 'k-mp';
+  if (row.level === 'mf') return 'k-mf';
+  return 'k-other';
+}
+function fmt(x, digits = 3) { return x === null || x === undefined ? '' : (Math.round(x * 10 ** digits) / 10 ** digits).toString(); }
+function duplexTable(part) {
+  const table = el('table', { class: 'duplex' });
+  const rows = [['rShift', (r) => r.shift === undefined ? '' : (r.shift > 0 ? '+' : '') + r.shift], ['rNote', (r) => r.note || ''], ['rAa', (r) => r.aa], ['rSig', (r) => part.sigmas ? '' : ''], ['rSig6', (r) => fmt(r.sigma6, 1)], ['rA', (r) => fmt(r.alphaAv)], ['rB', (r) => fmt(r.betaAv)]];
+  for (const [key, f] of rows) {
+    const tr = el('tr', {}, el('th', { text: t(key) }));
+    for (const r of part.table) {
+      const td = el('td');
+      if (key === 'rAa') { td.className = 'aa ' + levelClass(r); td.textContent = r.aa; td.title = `${r.residues[0]}–${r.residues[1]}: ${r.role}`; }
+      else if (key === 'rSig') td.textContent = [...r.aa].map((a) => sigmaOf(a)).join(' ');
+      else td.textContent = f(r);
+      tr.append(td);
+    }
+    table.append(tr);
+  }
+  return el('div', { class: 'tablewrap' }, table);
+}
+import { AA } from './src/tables.js';
+const sigmaOf = (a) => AA[a].sigma;
+
+// ------------------------------------------------------------------ playback
+let audio = null;
+function stopAudio() {
+  if (audio) { audio.stopped = true; try { audio.ctx.close(); } catch (e) {} if (audio.raf) cancelAnimationFrame(audio.raf); audio.button.textContent = t('play'); delete audio.button.dataset.playing; audio.bar.style.width = '0%'; audio = null; }
+}
+function voice(ctx, dest, ev, t0, secPerTick, instrument) {
+  const f = 440 * 2 ** ((ev.midi - 69) / 12);
+  const start = t0 + ev.t * secPerTick;
+  const dur = Math.max(0.05, ev.dur * secPerTick);
+  const gain = ctx.createGain();
+  const amp = 0.18 * (ev.vel / 127) ** 1.4;
+  gain.gain.setValueAtTime(0.0001, start);
+  gain.gain.exponentialRampToValueAtTime(amp, start + 0.006);
+  const decay = instrument === 'guitar' ? 0.9 : 1.6;
+  gain.gain.setTargetAtTime(amp * 0.25, start + 0.03, decay * 0.35);
+  const end = start + Math.min(dur, decay * 2.5);
+  gain.gain.setTargetAtTime(0.0001, end, 0.04);
+  const partials = instrument === 'guitar' ? [[1, 1, 'sawtooth']] : [[1, 1, 'triangle'], [2, 0.32, 'sine'], [3, 0.14, 'sine'], [4, 0.06, 'sine']];
+  const filter = ctx.createBiquadFilter();
+  filter.type = 'lowpass';
+  filter.frequency.setValueAtTime(instrument === 'guitar' ? 2600 : 5200, start);
+  filter.frequency.setTargetAtTime(instrument === 'guitar' ? 700 : 1800, start + 0.02, 0.5);
+  for (const [mult, g, type] of partials) {
+    const o = ctx.createOscillator();
+    o.type = type; o.frequency.value = f * mult;
+    const pg = ctx.createGain(); pg.gain.value = g;
+    o.connect(pg).connect(filter);
+    o.start(start); o.stop(end + 0.3);
+  }
+  filter.connect(gain).connect(dest);
+}
+function playScore(score, button, bar, timeEl) {
+  if (audio && audio.button === button) { stopAudio(); return; }
+  stopAudio();
+  const Ctx = window.AudioContext || window.webkitAudioContext;
+  if (!Ctx) return;
+  const ctx = new Ctx();
+  const comp = ctx.createDynamicsCompressor();
+  comp.connect(ctx.destination);
+  const { events, totalTicks } = scoreToEvents(score);
+  const secPerTick = 60 / (score.tempo.bpm || 76) / 256;
+  const t0 = ctx.currentTime + 0.15;
+  const total = totalTicks * secPerTick;
+  for (const ev of events) voice(ctx, comp, ev, t0, secPerTick, score.parts[ev.part].instrument);
+  audio = { ctx, button, bar, stopped: false, raf: 0 };
+  button.textContent = t('stop'); button.dataset.playing = '1';
+  const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  const tick = () => {
+    if (!audio || audio.ctx !== ctx) return;
+    const e = Math.max(0, ctx.currentTime - t0);
+    bar.style.width = `${Math.min(100, (100 * e) / total)}%`;
+    timeEl.textContent = `${mmss(Math.min(e, total))} / ${mmss(total)}`;
+    if (e >= total + 0.5) { stopAudio(); timeEl.textContent = `${mmss(total)} / ${mmss(total)}`; return; }
+    audio.raf = requestAnimationFrame(tick);
+  };
+  tick();
+}
+
+// ------------------------------------------------------------------ forward
+let lastScore = null;
+function convert() {
+  const status = $('fwd-status');
+  status.className = 'status'; status.textContent = t('working');
+  stopAudio();
+  try {
+    const opts = { localization: $('loc').value || undefined, bpm: $('bpm').value ? Number($('bpm').value) : undefined, title: $('title').value || undefined };
+    const score = proteinToMusic($('seq').value, opts);
+    lastScore = score;
+    const abc = scoreToAbc(score);
+    $('fwd-abc').value = abc;
+    const texture = { monophony: t('mono'), biphony: t('bi'), polyphony: t('poly') }[score.texture];
+    const nEl = score.parts.reduce((s, p) => s + p.elements.filter((e) => e.kind !== 'nonharm').length, 0);
+    $('fwd-summary').replaceChildren(
+      el('span', {}, `${t('tempo')}: `, el('b', { text: `${score.tempo.marking} ♩ = ${score.tempo.bpm}` }), ` (${score.tempo.localization})`),
+      el('span', {}, `${t('texture')}: `, el('b', { text: texture })),
+      el('span', {}, `${t('chains')}: `, el('b', { text: String(score.parts.length) }), ` · ${score.parts.map((p) => p.sequence.length).join(' + ')} ${t('residues')}`),
+      el('span', {}, `${t('elements')}: `, el('b', { text: String(nEl) })),
+    );
+    renderScore($('fwd-score'), abc);
+    $('fwd-tables').replaceChildren(...score.parts.map((p) => el('div', {}, el('h3', { text: `${p.name} — ${p.instrumentName}` }), duplexTable(p))));
+    $('fwd-results').hidden = false;
+    status.textContent = t('done');
+  } catch (err) {
+    status.className = 'status error'; status.textContent = `${t('invalid')}: ${err.message}`;
+  }
+}
+$('convert').addEventListener('click', convert);
+$('fwd-play').addEventListener('click', () => { if (lastScore) playScore(lastScore, $('fwd-play'), $('fwd-bar'), $('fwd-time')); });
+$('copy-abc').addEventListener('click', async () => {
+  const ta = $('fwd-abc');
+  try { await navigator.clipboard.writeText(ta.value); $('copy-abc').textContent = t('copied'); setTimeout(() => { $('copy-abc').textContent = t('copy'); }, 1500); }
+  catch (e) { ta.select(); }
+});
+
+// ------------------------------------------------------------------ reverse
+function decode() {
+  const status = $('rev-status');
+  status.className = 'status'; status.textContent = t('working');
+  $('decode').disabled = true;
+  stopAudio();
+  setTimeout(() => {
+    try {
+      const parsed = parseAbc($('abc').value);
+      const res = musicToProtein(parsed, { beamWidth: Number($('beam').value) || 64, seed: Number($('seed').value) || 0 });
+      const out = $('rev-results');
+      out.replaceChildren();
+      const chains = res.chains.map((c) => ({ name: c.name, sequence: c.sequence }));
+      const back = proteinToMusic(chains, { title: (parsed.title || 'music') + ' → protein → music', bpm: parsed.tempo.bpm, tempoMarking: parsed.tempo.marking, instruments: res.chains.map((c) => c.instrument) });
+      const backAbc = scoreToAbc(back);
+      for (const c of res.chains) {
+        const a = c.fidelity.attributes;
+        const card = el('div', { class: 'card' },
+          el('h2', { text: `${t('seqHead')} — ${c.name} (${c.length} ${t('residues')})` }),
+          el('div', { class: 'seqout', text: c.sequence }),
+          el('div', { class: 'copyrow' }, (() => { const b = el('button', { class: 'btn secondary', type: 'button', text: t('copy') }); b.addEventListener('click', async () => { try { await navigator.clipboard.writeText(c.sequence); b.textContent = t('copied'); setTimeout(() => { b.textContent = t('copy'); }, 1500); } catch (e) {} }); return b; })()),
+          el('div', { class: 'fid' },
+            el('div', {}, el('b', { text: `${c.fidelity.exact} / ${c.fidelity.total}` }), t('exact')),
+            el('div', {}, el('b', { text: String(a.pitch) }), t('errPitch')),
+            el('div', {}, el('b', { text: String(a.duration) }), t('errDur')),
+            el('div', {}, el('b', { text: String(a.octave) }), t('errOct')),
+            el('div', {}, el('b', { text: String(a.dynamics) }), t('errDyn')),
+            el('div', {}, el('b', { text: String(a.accent) }), t('errAcc')),
+          ),
+        );
+        if (c.fidelity.diffs.length) {
+          const ul = el('ul', { class: 'diffs' }, ...c.fidelity.diffs.map((d) => el('li', { text: `#${d.index + 1} ${d.what}: ${t('wanted')} ${d.target}, ${t('got')} ${d.produced}` })));
+          card.append(el('details', {}, el('summary', { text: `${t('diffs')} (${c.fidelity.diffs.length})` }), ul));
+        }
+        if (c.alternatives.length) {
+          card.append(el('details', {}, el('summary', { text: `${t('alt')} (${c.alternatives.length})` }), ...c.alternatives.map((v) => el('div', { class: 'seqout', style: 'margin-top:8px', text: `${v.sequence}   (${v.exact}/${v.total})` }))));
+        }
+        out.append(card);
+      }
+      if (res.notes.length) out.append(el('div', { class: 'note' }, el('b', { text: t('notes') + ': ' }), res.notes.join(' · ')));
+      const scoreDiv = el('div', { class: 'score' });
+      const playBtn = el('button', { class: 'btn secondary play-rev', type: 'button', text: t('play') });
+      const bar = el('i'); const time = el('span', { class: 'time', text: '0:00 / 0:00' });
+      playBtn.addEventListener('click', () => playScore(back, playBtn, bar, time));
+      out.append(el('h3', { text: t('reenc') }), scoreDiv, el('div', { class: 'transport' }, playBtn, el('div', { class: 'progress' }, bar), time));
+      renderScore(scoreDiv, backAbc);
+      out.hidden = false;
+      status.textContent = t('done');
+    } catch (err) {
+      status.className = 'status error'; status.textContent = `${t('invalid')}: ${err.message}`;
+    }
+    $('decode').disabled = false;
+  }, 30);
+}
+$('decode').addEventListener('click', decode);
+
+// ------------------------------------------------------------------ boot
+applyLang();
+const ex0 = EXAMPLES_FWD[0];
+$('seq').value = ex0.seq; $('loc').value = ex0.loc; $('title').value = ex0.title;
+$('abc').value = MOZART;
+convert();
+</script>
+</body>
+</html>

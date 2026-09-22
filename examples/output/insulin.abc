@@ -1,0 +1,18 @@
+X:1
+T:Human insulin
+%%localization Intercellular space (secreted proteins)
+%%abiks texture biphony
+M:4/4
+L:1/1
+Q:"Presto" 1/4=184
+K:C
+V:1 clef=treble name="Piano – Insulin B-chain (piano)"
+%%MIDI program 0
+V:2 clef=treble name="Acoustic guitar – Insulin A-chain (acoustic guitar)"
+%%MIDI program 24
+[V:1]
+%%sequence FVNQHLCGSHLVEALYLVCGERGFFYTPKT
+!mf! B,/8 B,/8 F3/16 !>!B,3/32 !crescendo(! ^G,3/16 B/8 E,/16 !crescendo)! !f! B,/16 B,,/16 | !>!B3/64 !mf! A/16 !>!A/16 [B,, ^D, ^F, A, ^C]/16 D/8 |]
+[V:2]
+%%sequence GIVEQCCTSICSLYQLENYCN
+!f! !>!C/8 ^A/16 A3/64 D,3/64 C,/16 G,3/64 B,/16 F/16 F/32 =A3/128 F3/128 |]

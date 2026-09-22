@@ -1,0 +1,9 @@
+[
+  { "file": "hPrP91-230-nat.fasta", "title": "hPrP91-230-nat", "localization": "golgi" },
+  { "file": "hPrP91-230-mut.fasta", "title": "hPrP91-230-mut", "localization": "aggresome" },
+  { "file": "AtRPS6A-nat.fasta", "title": "RPS6-nat", "localization": "cytosol", "bpm": 80 },
+  { "file": "AtRPS6A-6mut.fasta", "title": "RPS6-6mut", "localization": "cytosol", "bpm": 80 },
+  { "file": "insulin.fasta", "title": "Human insulin", "localization": "secreted" },
+  { "file": "Rab5-79-107.fasta", "title": "Rab5 79-107", "localization": "lysosome" },
+  { "file": "rondo-alla-turca.abc", "title": "Rondo alla Turca" }
+]

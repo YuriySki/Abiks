@@ -1,0 +1,13 @@
+X:1
+T:Rondo alla Turca (simplified excerpt, after Fig. 6 of the paper)
+C:W. A. Mozart, Piano Sonata No. 11 K. 331, 3rd movement
+M:2/4
+L:1/16
+Q:"Allegretto" 1/4=126
+K:Am
+!p! B A ^G A | c4 d c B c | e4 f e ^d e | B A ^G A B A ^G A | c4 a2 c2 |
+{a}d4 c2 B2 | {c}B4 A2 B2 | {B}c4 B2 A2 | ^G4 z4 |
+!f! e2 e2 | f2 f2 e c d B | c2 z2 !p! e2 e2 | f2 f2 e c d B | c2 z2 !f! d2 d2 |
+e2 e2 d B c A | B2 z2 !p! d2 d2 | e2 e2 d B c A | B2 z2 |
+!f! c4 d c B c | e4 f e ^d e | !crescendo(! B A ^G A B A ^G A !crescendo)! | !f! c4 a2 c2 |
+{a}d4 c2 B2 | A4 z4 |]

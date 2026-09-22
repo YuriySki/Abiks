@@ -1,0 +1,20 @@
+X:1
+T:hPrP91-230-mut
+%%localization Aggresomes, inclusion bodies, stress granules
+%%abiks texture monophony
+M:4/4
+L:1/1
+Q:"Adagio" 1/4=66
+K:C
+V:1 clef=treble name="Piano – hPrP91-230-mut human prion protein 91-230 with the GSS mutations P102L and P105L"
+%%MIDI program 0
+%%sequence QGGGTHSQWNKLSKLKTNMKHMAGAAAAGAVVGGLGGYMLGSAMSRPIIHFGSDYEDRYYRENMHRYPNQVYYRPMDEYSNQNNFVHDCVNITIKQHTVTTTTKGENFTETDVKMMERVVEQMCITQYERESQAYYQRGSS
+!mf! !>!^A/8 !>!G/8 ^D3/16 ^G,/8 =D/8 !p! F/4 ^g/2 | ^f1 | ^D1 | B2 |
+B3 | !>!A,2 | !mf! C2 | C2 |
+!>!B,2 | !>!E,2 | !>!G,2 | !>!E,,2 |
+z/64 !>!C,2 | z1 | [^G c ^d ^f b]4 | ^G,,4 |
+!>!G4 | !f! ^G1 | a''/2 C/2 | e'/2 B3/2 |
+z/2 [A d e g]4 | !mf! B,4 | E4 | [A, ^C F ^G]4 |
+E/2 | a/2 B/2 | ^F,/2 !f! B/2 | F,3/16 B3/16 G,,/4 |
+G/4 C/2 D3/4 | F,/2 | ^D/2 ^d1 | !>!^c/2 |
+^f/2 ^D/4 ^d'/16 ^A/8 | z2 | !mp! A/8 e'/8 !f! C/16 D,,3/64 ^C/16 !mf! a'/16 !p! g'/32 C/32 E/32 ^A/8 !mf! !>!=C/8 C/8 |]

@@ -1,0 +1,12 @@
+X:1
+T:Rab5 79-107
+%%localization Lysosomes
+%%abiks texture monophony
+M:4/4
+L:1/1
+Q:"Moderato" 1/4=110
+K:C
+V:1 clef=treble name="Piano – Rab5 79-107 human Rab5 fragment used in Fig. 1a of the paper (lysosomal localization, Moderato)"
+%%MIDI program 0
+%%sequence GQERYHSLAPMYYRGAQAAIVVYDITNTDT
+!p! !>!e/8 a/8 A3/16 [D, ^F, A, C]/8 z/4 !mf! A,/2 | !crescendo(! !>!B/2 ^C,/2 | A,/2 !crescendo)! !f! E,/2 | A,/8 D/8 ^F/8 D/32 |]

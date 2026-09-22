@@ -1,0 +1,16 @@
+{
+  "name": "abiks",
+  "version": "1.0.0",
+  "description": "Protein <-> music converter implementing the doublet degenerate code of Nadirova & Zhigailov (Heliyon 2026, e45432)",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": { "abiks": "bin/abiks.js" },
+  "scripts": {
+    "test": "node --test",
+    "examples": "node bin/abiks.js examples",
+    "serve": "node bin/abiks.js serve"
+  },
+  "engines": { "node": ">=18" },
+  "keywords": ["protein", "music", "sonification", "bioinformatics", "abc-notation", "midi", "musicxml"],
+  "license": "MIT"
+}
