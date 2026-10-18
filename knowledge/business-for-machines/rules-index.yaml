@@ -1,0 +1,778 @@
+# Машиночитаемый индекс набора знаний «Бизнес, понятный машинам».
+# Генерируется из заголовков файлов; id, title, file и chapter берутся из них.
+source:
+  title: "Бизнес, понятный машинам. Практическое пособие по ИИ-агентам и мультиагентным системам"
+  author: "Руслан Гамзатов"
+  series: "AI1 Stack"
+  pages: 61
+  chapters: 27
+built: 2026-10-18
+id_scheme:
+  R-NN.k: "правило k главы NN; R-C.k — правило заключения"
+  P-n: "сквозной принцип"
+  T-n: "шаблон или чек-лист"
+files:
+  - path: 01-core-principles.md
+    topic: principles
+  - path: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - path: 03-agent-and-first-pick.md
+    topic: agent-definition-and-selection
+  - path: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - path: 05-pilot.md
+    topic: pilot
+  - path: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - path: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - path: 08-people-and-scale.md
+    topic: people-and-scale
+  - path: 09-templates-and-checklists.md
+    topic: templates
+items:
+  - id: P-1
+    kind: principle
+    title: "Предмет внедрения — не технология, а способность компании превращать знания и решения в исполнимую систему"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-2
+    kind: principle
+    title: "Машина видит только данные и правила"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-3
+    kind: principle
+    title: "Стандарт должен быть исполнимым, а результат — пригодным для следующего действия"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-4
+    kind: principle
+    title: "Агент — узкая функция с паспортом, а не универсальный помощник"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-5
+    kind: principle
+    title: "Диагностика и зрелость оцениваются по функциям, а не по компании"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-6
+    kind: principle
+    title: "Сначала данные и стандарт, потом агент; датасет проектируется от функций"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-7
+    kind: principle
+    title: "Ценность доказывается на реальных задачах, в сравнении с человеком, по метрике, выбранной до внедрения"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-8
+    kind: principle
+    title: "Доступ и автономность соответствуют действию, стоимости ошибки и обратимости"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-9
+    kind: principle
+    title: "Внешнее содержимое — данные, а не команды"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-10
+    kind: principle
+    title: "Сложность растёт только после доказательства необходимости"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-11
+    kind: principle
+    title: "Всё журналируется и наблюдается; качество не имеет пожизненного сертификата"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-12
+    kind: principle
+    title: "Ответственность не переезжает в модель"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-13
+    kind: principle
+    title: "Агент усиливает людей, а не заменяет их; эксперты — соавторы"
+    file: 01-core-principles.md
+    topic: principles
+  - id: P-14
+    kind: principle
+    title: "Повторяемость важнее количества"
+    file: 01-core-principles.md
+    topic: principles
+  - id: R-01.1
+    kind: rule
+    chapter: 1
+    title: "Процесс в голове сотрудника — это долг системы, а не кадровая проблема"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-01.2
+    kind: rule
+    chapter: 1
+    title: "Машина не наследует способность достраивать контекст"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-01.3
+    kind: rule
+    chapter: 1
+    title: "Первый шаг — увидеть невидимую работу, а не выбрать модель"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-02.1
+    kind: rule
+    chapter: 2
+    title: "Стандарт должен быть исполнимым"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-02.2
+    kind: rule
+    chapter: 2
+    title: "Описывать условия, а не движения"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-02.3
+    kind: rule
+    chapter: 2
+    title: "Стандарт — рабочий интерфейс компании, полезный и людям"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-04.1
+    kind: rule
+    chapter: 4
+    title: "Зрелость измеряется не количеством сервисов"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-04.2
+    kind: rule
+    chapter: 4
+    title: "Шкала зрелости функции"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-04.3
+    kind: rule
+    chapter: 4
+    title: "Зрелость оценивается по функциям, а не по компании в целом"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-04.4
+    kind: rule
+    chapter: 4
+    title: "Выбирать готовую функцию, а не самый заметный отдел"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-05.1
+    kind: rule
+    chapter: 5
+    title: "Диагностика дешевле неудачного пилота и отвечает на четыре вопроса"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-05.2
+    kind: rule
+    chapter: 5
+    title: "Интервью с руководителем недостаточно — пройдите задачу вместе с исполнителем"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-05.3
+    kind: rule
+    chapter: 5
+    title: "Результат диагностики — карта операций, данных и решений"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-05.4
+    kind: rule
+    chapter: 5
+    title: "Минимальный набор доказательств"
+    file: 02-reality-and-maturity.md
+    topic: reality-and-readiness
+  - id: R-03.1
+    kind: rule
+    chapter: 3
+    title: "Определение агента"
+    file: 03-agent-and-first-pick.md
+    topic: agent-definition-and-selection
+  - id: R-03.2
+    kind: rule
+    chapter: 3
+    title: "Агент — должность, разобранная до исполнимой функции"
+    file: 03-agent-and-first-pick.md
+    topic: agent-definition-and-selection
+  - id: R-03.3
+    kind: rule
+    chapter: 3
+    title: "Меняется способ решения, но не договорённость о результате"
+    file: 03-agent-and-first-pick.md
+    topic: agent-definition-and-selection
+  - id: R-03.4
+    kind: rule
+    chapter: 3
+    title: "Поля паспорта агента (краткая версия главы 3)"
+    file: 03-agent-and-first-pick.md
+    topic: agent-definition-and-selection
+  - id: R-06.1
+    kind: rule
+    chapter: 6
+    title: "Первый агент формирует отношение компании ко всему проекту"
+    file: 03-agent-and-first-pick.md
+    topic: agent-definition-and-selection
+  - id: R-06.2
+    kind: rule
+    chapter: 6
+    title: "Три обязательных свойства кандидата"
+    file: 03-agent-and-first-pick.md
+    topic: agent-definition-and-selection
+  - id: R-06.3
+    kind: rule
+    chapter: 6
+    title: "Приоритет = эффект × готовность, с поправкой на риск"
+    file: 03-agent-and-first-pick.md
+    topic: agent-definition-and-selection
+  - id: R-06.4
+    kind: rule
+    chapter: 6
+    title: "Не лучший старт: запрещённые первые агенты"
+    file: 03-agent-and-first-pick.md
+    topic: agent-definition-and-selection
+  - id: R-07.1
+    kind: rule
+    chapter: 7
+    title: "Датасет — управляемая модель бизнеса, а не архив файлов"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-07.2
+    kind: rule
+    chapter: 7
+    title: "Пять слоёв датасета и история решений"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-07.3
+    kind: rule
+    chapter: 7
+    title: "Датасет проектируется от функций агентов"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-07.4
+    kind: rule
+    chapter: 7
+    title: "Критерий готовности фрагмента данных"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-08.1
+    kind: rule
+    chapter: 8
+    title: "Сбор знаний — расследование, а не чтение регламентов"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-08.2
+    kind: rule
+    chapter: 8
+    title: "Разбирать последние пять случаев, а не «работу вообще»"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-08.3
+    kind: rule
+    chapter: 8
+    title: "Противоречия не сглаживать — это управленческое решение"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-08.4
+    kind: rule
+    chapter: 8
+    title: "Метод трёх слоёв"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-09.1
+    kind: rule
+    chapter: 9
+    title: "Один документ — разные доступы для разных агентов"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-09.2
+    kind: rule
+    chapter: 9
+    title: "Источник истины хранится в одном месте"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-09.3
+    kind: rule
+    chapter: 9
+    title: "Доступ соответствует действию: три разных полномочия"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-09.4
+    kind: rule
+    chapter: 9
+    title: "Безопасная лестница выполнения"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-10.1
+    kind: rule
+    chapter: 10
+    title: "Стандарт результата — главный контракт агента с бизнесом"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-10.2
+    kind: rule
+    chapter: 10
+    title: "Элементы стандарта результата"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-10.3
+    kind: rule
+    chapter: 10
+    title: "Формат зависит от потребителя результата"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-10.4
+    kind: rule
+    chapter: 10
+    title: "Как создать стандарт: сильные примеры плюс негативные"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-10.5
+    kind: rule
+    chapter: 10
+    title: "Формула хорошего результата"
+    file: 04-knowledge-foundation.md
+    topic: knowledge-foundation
+  - id: R-11.1
+    kind: rule
+    chapter: 11
+    title: "MVP доказывает повторяемую деловую ценность, а не техническую возможность"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-11.2
+    kind: rule
+    chapter: 11
+    title: "Порядок пилота"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-11.3
+    kind: rule
+    chapter: 11
+    title: "Не спешить с интерфейсом и интеграциями"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-11.4
+    kind: rule
+    chapter: 11
+    title: "Готовность к рабочему запуску"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-12.1
+    kind: rule
+    chapter: 12
+    title: "Один удачный ответ ничего не доказывает — агент проверяется как процесс, а не как собеседник"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-12.2
+    kind: rule
+    chapter: 12
+    title: "Эталонный набор: задания плюс ожидаемые признаки результата"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-12.3
+    kind: rule
+    chapter: 12
+    title: "Классифицировать ошибки, иначе команда бесконечно переписывает промпт"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-12.4
+    kind: rule
+    chapter: 12
+    title: "Наблюдаемые показатели тестирования"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-13.1
+    kind: rule
+    chapter: 13
+    title: "Контроль — распределение ответственности по стоимости ошибки, а не временная слабость системы"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-13.2
+    kind: rule
+    chapter: 13
+    title: "Три вида контроля"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-13.3
+    kind: rule
+    chapter: 13
+    title: "Плохой контроль превращает сотрудника в формального нажимателя кнопки"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-13.4
+    kind: rule
+    chapter: 13
+    title: "Матрица автономности"
+    file: 05-pilot.md
+    topic: pilot
+  - id: R-14.1
+    kind: rule
+    chapter: 14
+    title: "Второй агент появляется из конфликта методов, данных или критериев, а не из моды"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-14.2
+    kind: rule
+    chapter: 14
+    title: "Разделение уменьшает контекст и делает ошибки адресными"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-14.3
+    kind: rule
+    chapter: 14
+    title: "Каждый новый агент стоит координации"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-14.4
+    kind: rule
+    chapter: 14
+    title: "Тест необходимости отдельного агента"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-15.1
+    kind: rule
+    chapter: 15
+    title: "Мультиагентная система ломается на стыках — контракт делает передачу предсказуемой"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-15.2
+    kind: rule
+    chapter: 15
+    title: "Содержимое контракта"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-15.3
+    kind: rule
+    chapter: 15
+    title: "Передаётся достаточный пакет, а не вся история диалога"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-15.4
+    kind: rule
+    chapter: 15
+    title: "Контракт нужен и человеку"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-16.1
+    kind: rule
+    chapter: 16
+    title: "Сила оркестратора — в управлении работой, а не в знании предметных областей"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-16.2
+    kind: rule
+    chapter: 16
+    title: "На раннем этапе оркестратор — обычный процесс автоматизации"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-16.3
+    kind: rule
+    chapter: 16
+    title: "Оркестратор не скрывает происхождение результата"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-16.4
+    kind: rule
+    chapter: 16
+    title: "Зона ответственности оркестратора"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-17.1
+    kind: rule
+    chapter: 17
+    title: "Четыре базовые схемы и условия их применения"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-17.2
+    kind: rule
+    chapter: 17
+    title: "Архитектуру выбирают по процессу, а не по моде"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-17.3
+    kind: rule
+    chapter: 17
+    title: "Сложность растёт после доказательства необходимости"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-18.1
+    kind: rule
+    chapter: 18
+    title: "Данные дают понимание, интеграции — участие"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-18.2
+    kind: rule
+    chapter: 18
+    title: "Каждая интеграция расширяет поверхность риска"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-18.3
+    kind: rule
+    chapter: 18
+    title: "Интеграции подключаются по деловой необходимости"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-18.4
+    kind: rule
+    chapter: 18
+    title: "Лестница подключения"
+    file: 06-multi-agent-system.md
+    topic: multi-agent-system
+  - id: R-19.1
+    kind: rule
+    chapter: 19
+    title: "Экономия времени — важная, но неполная метрика"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-19.2
+    kind: rule
+    chapter: 19
+    title: "Считать полную стоимость"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-19.3
+    kind: rule
+    chapter: 19
+    title: "Эффект подтверждается на сопоставимом периоде или выборке"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-19.4
+    kind: rule
+    chapter: 19
+    title: "Простая модель годового эффекта"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-20.1
+    kind: rule
+    chapter: 20
+    title: "Безопасность начинается с архитектуры полномочий"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-20.2
+    kind: rule
+    chapter: 20
+    title: "Внешнее содержимое — данные, а не команда"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-20.3
+    kind: rule
+    chapter: 20
+    title: "Организации нужен журнал"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-20.4
+    kind: rule
+    chapter: 20
+    title: "Красные зоны"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-21.1
+    kind: rule
+    chapter: 21
+    title: "Смотреть на процесс, а не на отдельные ответы"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-21.2
+    kind: rule
+    chapter: 21
+    title: "Соединять технические и деловые показатели"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-21.3
+    kind: rule
+    chapter: 21
+    title: "Следить за дрейфом"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-21.4
+    kind: rule
+    chapter: 21
+    title: "Что отслеживать"
+    file: 07-economics-security-observability.md
+    topic: economics-security-observability
+  - id: R-22.1
+    kind: rule
+    chapter: 22
+    title: "Менеджер проектирует условия работы, а не раздаёт мелкие задания"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-22.2
+    kind: rule
+    chapter: 22
+    title: "Перевести расплывчатое ожидание в проверяемый контракт"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-22.3
+    kind: rule
+    chapter: 22
+    title: "Ответственность не переезжает в модель"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-22.4
+    kind: rule
+    chapter: 22
+    title: "Компетенции менеджера"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-23.1
+    kind: rule
+    chapter: 23
+    title: "Сопротивление — источник знаний о процессе, а не страх технологий"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-23.2
+    kind: rule
+    chapter: 23
+    title: "Начинать с функции усиления"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-23.3
+    kind: rule
+    chapter: 23
+    title: "Не требовать обучать систему бесплатно и сверх нагрузки"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-23.4
+    kind: rule
+    chapter: 23
+    title: "Рабочая коммуникация: шесть вопросов, на которые должен быть ответ"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-24.1
+    kind: rule
+    chapter: 24
+    title: "Масштабирование начинается с повторяемого шаблона"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-24.2
+    kind: rule
+    chapter: 24
+    title: "Порядок роста"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-24.3
+    kind: rule
+    chapter: 24
+    title: "Рост количества не является целью"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-24.4
+    kind: rule
+    chapter: 24
+    title: "Десять ступеней"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-25.1
+    kind: rule
+    chapter: 25
+    title: "Этапы года"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-25.2
+    kind: rule
+    chapter: 25
+    title: "Контрольные точки"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-26.1
+    kind: rule
+    chapter: 26
+    title: "Карта нужна для понимания зависимостей, а не для одновременного запуска всех ролей"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-26.2
+    kind: rule
+    chapter: 26
+    title: "Замкнутый цикл ролей"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-26.3
+    kind: rule
+    chapter: 26
+    title: "Роль без входа или без потребителя результата — не элемент системы, а демонстрация"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-26.4
+    kind: rule
+    chapter: 26
+    title: "Ядро карты"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-27.1
+    kind: rule
+    chapter: 27
+    title: "Понятность машинам — не оцифровка каждого документа"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-27.2
+    kind: rule
+    chapter: 27
+    title: "Ясность отделяет повторяемую работу от профессионального суждения"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-27.3
+    kind: rule
+    chapter: 27
+    title: "Последний рубеж — цели"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-C.1
+    kind: rule
+    chapter: conclusion
+    title: "Устойчивое преимущество — способность бизнеса объяснить собственную работу"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: R-C.2
+    kind: rule
+    chapter: conclusion
+    title: "Алгоритм старта"
+    file: 08-people-and-scale.md
+    topic: people-and-scale
+  - id: T-1
+    kind: template
+    title: "Паспорт агента"
+    file: 09-templates-and-checklists.md
+    topic: templates
+  - id: T-2
+    kind: template
+    title: "Матрица выбора первого агента"
+    file: 09-templates-and-checklists.md
+    topic: templates
+  - id: T-3
+    kind: template
+    title: "Контрольная карта внедрения"
+    file: 09-templates-and-checklists.md
+    topic: templates
+  - id: T-4
+    kind: template
+    title: "Минимальный пакет передачи между агентами"
+    file: 09-templates-and-checklists.md
+    topic: templates
+  - id: T-5
+    kind: template
+    title: "Четыре универсальных шага («Что сделать в компании»)"
+    file: 09-templates-and-checklists.md
+    topic: templates
+  - id: T-6
+    kind: template
+    title: "Три вопроса руководителю"
+    file: 09-templates-and-checklists.md
+    topic: templates
+  - id: T-7
+    kind: template
+    title: "Контрольные точки года"
+    file: 09-templates-and-checklists.md
+    topic: templates
+  - id: T-8
+    kind: template
+    title: "Критерии готовности к рабочему запуску"
+    file: 09-templates-and-checklists.md
+    topic: templates
+  - id: T-9
+    kind: template
+    title: "Минимальный набор доказательств диагностики"
+    file: 09-templates-and-checklists.md
+    topic: templates
